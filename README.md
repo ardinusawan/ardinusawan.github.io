@@ -8,3 +8,6 @@
 1. Start the embedded web server with the command "hugo server --buildDrafts".
 
 See documentation at https://gohugo.io/.
+
+## Example
+- https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content
