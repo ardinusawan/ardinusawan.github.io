@@ -64,7 +64,7 @@ My service is consist of monorepo of Nginx + PHP 🐘 + JS (FE) + [hasura.io](ht
 
 For accessing my server, I use [tailscale](https://tailscale.com). Tailscale builds on top of WireGuard by adding automatic mesh configuration, single sign-on (SSO), NAT traversal, TCP transport, and centralized Access Control Lists (ACLs). The best of it? It free up to Up to 100 devices!
 
-Use connect to tailscale, then ssh to the internal ip
+After connect to tailscale, then ssh to the internal ip
 ![tailscale](images/tailscale-node.png)
 
 ## Database
