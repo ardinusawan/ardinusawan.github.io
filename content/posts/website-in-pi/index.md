@@ -69,7 +69,7 @@ www1.tanggalnya.com.    678     IN      A       104.21.52.196
 
 ## Load Balancer
 
-Cloudflare worker is serverless function (just like AWS Lambda). By using [wrangler](https://github.com/tanggalnya/load-balancer-worker/blob/main/src/proxy.ts) I build simple load balancer with health check enabled. Do check the code for details 🤓
+I do use Cloudflare Worker for LB. [Cloudflare Worker](https://workers.cloudflare.com/) is serverless function (just like AWS Lambda). Here the [source code](https://github.com/tanggalnya/load-balancer-worker/blob/main/src/proxy.ts) for round-robin the request. I build simple load balancer with health check enabled. Do check the code for details 🤓
 
 Logs:
 ![logs](images/cloudflare-logs.png)
