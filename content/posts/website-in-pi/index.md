@@ -58,7 +58,7 @@ Will keep my Vultr instance for a while until it stable (no complain from custom
 
 When using dig, nothing from my pi is exposed
 ```
-➜  dig www1.tanggalnya.com +noall +answer -t A
+➜ dig www1.tanggalnya.com +noall +answer -t A
 
 ; <<>> DiG 9.10.6 <<>> www1.tanggalnya.com +noall +answer -t A
 ;; global options: +cmd
