@@ -108,4 +108,6 @@ For image cache & resize service, we do use [wsrv](http://wsrv.nl/)
 
 # Closing
 
+This project is mainly inspired by almigthy DHH [blog](https://world.hey.com/dhh/we-have-left-the-cloud-251760fb). Ruby on Rails is dead, long live Ruby on Rails
+
 Have any question? Wanna discuss? Hit me up on ardi.nusawan13[at]gmail.com!
