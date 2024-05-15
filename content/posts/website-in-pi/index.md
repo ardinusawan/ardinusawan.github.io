@@ -4,6 +4,8 @@ title: "Host your website in raspberry/orange pi"
 date: 2024-04-15
 description: "Build up your own server using 🍇/🍊 with help of cloudflare"
 tags: ["server", "website", "cloud-exit"]
+thumbnail:
+  image: "https://assets.raspberrypi.com/static/50cf4345de1709e0fddf244e1b965b2e/3355f/raspberry-pi-5.webp"
 cover:
   image: "https://assets.raspberrypi.com/static/50cf4345de1709e0fddf244e1b965b2e/3355f/raspberry-pi-5.webp"
   alt: "raspberry pi"
