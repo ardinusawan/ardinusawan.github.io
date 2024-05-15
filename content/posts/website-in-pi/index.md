@@ -4,6 +4,7 @@ title: "Host your website in raspberry/orange pi"
 date: 2024-04-15
 description: "Build up your own server using 🍇/🍊 with help of cloudflare"
 tags: ["server", "website", "cloud-exit"]
+featured_image: images/tanggalnya.com_architecture.png
 ShowToc: true
 ---
 
