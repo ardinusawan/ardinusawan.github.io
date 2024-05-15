@@ -103,7 +103,7 @@ For image cache & resize service, we do use [wsrv](http://wsrv.nl/)
 # Caveat
 
 - THIS MAIN PROJECT PURPOSE IS TO REDUCE COST AS A BOOTSTRAPPED FOUNDER 🤣
-- Cloudflare Worker is good enough if your traffic is low, but if you need more then better to use (Argo Smart Routing)[https://developers.cloudflare.com/argo-smart-routing/] for load balancer in DNS level (A record)
+- Cloudflare Worker is good enough if your traffic is low, but if you need more then better to use [Argo Smart Routing](https://developers.cloudflare.com/argo-smart-routing/) for load balancer in DNS level (A record)
 - No auto recovery 😢. But since wrangler is already have health check, if 1 node goes down no traffic will be given
 
 # Closing
