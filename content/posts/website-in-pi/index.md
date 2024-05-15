@@ -52,7 +52,7 @@ In 🚁 view, here the components:
 Cloudflare is very powerfull DNS provider, here my A and CNAME record
   - ![A](images/A_record.png)
   - ![CNAME](images/CNAME_record.png)
-      As you can see, for A record it just goes to IPv4 address (Vultr Classic VM). For CNAME, it goes to [cloudflared tunnel](https://github.com/cloudflare/cloudflared)
+      As you can see, for A record it just goes to IPv4 address (Vultr Classic VM). For CNAME, it goes to [cloudflared tunnel](https://github.com/cloudflare/cloudflared). This tunnel will expose port 80 of my pi to outside world.
 
 Will keep my Vultr instance for a while until it stable (no complain from customer 😂)
 
