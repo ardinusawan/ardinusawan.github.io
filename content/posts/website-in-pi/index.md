@@ -1,6 +1,6 @@
 ---
 author: ["I Dewa Putu Ardi Nusawan"]
-title: "Host your website in rapberry/orange pi"
+title: "Host your website in raspberry/orange pi"
 date: 2024-04-15
 description: "Build up your own server using 🍇/🍊 with help of cloudflare"
 tags: ["server", "website", "cloud-exit"]
