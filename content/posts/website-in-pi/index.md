@@ -56,6 +56,17 @@ Cloudflare is very powerfull DNS provider, here my A and CNAME record
 
 Will keep my Vultr instance for a while until it stable (no complain from customer 😂)
 
+When using dig, nothing from my pi is exposed
+```
+➜  dig tanggalnya.com +noall +answer -t A
+
+; <<>> DiG 9.10.6 <<>> tanggalnya.com +noall +answer -t A
+;; global options: +cmd
+tanggalnya.com.         2001    IN      A       172.67.203.58
+tanggalnya.com.         2001    IN      A       104.21.52.196
+
+```
+
 ## Load Balancer
 
 Cloudflare worker is serverless function (just like AWS Lambda). By using [wrangler](https://github.com/tanggalnya/load-balancer-worker/blob/main/src/proxy.ts) I build simple load balancer with health check enabled. Do check the code for details 🤓
