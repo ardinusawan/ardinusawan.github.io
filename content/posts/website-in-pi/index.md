@@ -58,12 +58,12 @@ Will keep my Vultr instance for a while until it stable (no complain from custom
 
 When using dig, nothing from my pi is exposed
 ```
-➜  dig tanggalnya.com +noall +answer -t A
+➜  dig www1.tanggalnya.com +noall +answer -t A
 
-; <<>> DiG 9.10.6 <<>> tanggalnya.com +noall +answer -t A
+; <<>> DiG 9.10.6 <<>> www1.tanggalnya.com +noall +answer -t A
 ;; global options: +cmd
-tanggalnya.com.         2001    IN      A       172.67.203.58
-tanggalnya.com.         2001    IN      A       104.21.52.196
+www1.tanggalnya.com.    678     IN      A       172.67.203.58
+www1.tanggalnya.com.    678     IN      A       104.21.52.196
 
 ```
 
