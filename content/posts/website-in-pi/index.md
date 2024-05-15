@@ -58,6 +58,9 @@ Will keep my Vultr instance for a while until it stable (no complain from custom
 
 Cloudflare worker is serverless function (just like AWS Lambda). By using [wrangler](https://github.com/tanggalnya/load-balancer-worker/blob/main/src/proxy.ts) I build simple load balancer with health check enabled. Do check the code for details 🤓
 
+Logs:
+![logs](images/cloudflare-logs.png)
+
 ## Services
 
 Before hitting my service, ingress is being handled by cloudflared first. Here the folder architecture and config
