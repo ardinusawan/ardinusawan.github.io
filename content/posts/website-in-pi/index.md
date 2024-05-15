@@ -6,8 +6,8 @@ description: "Build up your own server using 🍇/🍊 with help of cloudflare"
 tags: ["server", "website", "cloud-exit"]
 cover:
   image: "https://assets.raspberrypi.com/static/50cf4345de1709e0fddf244e1b965b2e/3355f/raspberry-pi-5.webp"
-  alt: "tanggalnya.com architecture"
-  caption: "tanggalnya.com architecture"
+  alt: "raspberry pi"
+  caption: "raspberry pi"
   relative: true
 ShowToc: true
 ---
