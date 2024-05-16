@@ -12,6 +12,8 @@ cover:
   caption: "raspberry pi"
   relative: true
 ShowToc: true
+comments: true
+draft: false
 ---
 
 # Introduction
