@@ -101,13 +101,13 @@ params:
   homeInfoParams:
     Title: "About Me"
     Content: >
-      - 👋🏼  Hey, I'm Dewa—
+      - 👋 Hey, I'm Dewa—
 
       - 📍 Bali
 
       - 💼 Software Engineer at [Gojek](http://gojek.com)
       
-      - ✍🏼 Writing code as daily basis
+      -✍🏼 Writing code as daily basis
       
       - 🎓 ITS Surabaya 2017
       
@@ -120,6 +120,9 @@ params:
     - name: linkedin
       title: Linkedin
       url: "https://www.linkedin.com/in/ardinusawan/"
+    - name: stackoverflow
+      title: StackOverflow
+      url: "https://stackoverflow.com/users/4154982/ardi-nusawan"
 
   editPost:
     URL: "https://github.com/ardinusawan/ardinusawan.github.io/tree/main/content"
@@ -132,9 +135,9 @@ params:
   # icon: icon.png
   # iconHeight: 35
 
-  # analytics:
-  #     google:
-  #         SiteVerificationTag: "XYZabc"
+  analytics:
+      google:
+          SiteVerificationTag: "G-NYFF648CV5"
 
   assets:
     disableHLJS: true
@@ -144,9 +147,9 @@ params:
   #     apple_touch_icon: "<link / abs url>"
   #     safari_pinned_tab: "<link / abs url>"
 
-  # cover:
+  cover:
   #     hidden: true # hide everywhere but not in structured data
-  #     hiddenInList: true # hide on list pages and home
+        hiddenInList: true # hide on list pages and home
   #     hiddenInSingle: true # hide on single page
 
   # fuseOpts:
