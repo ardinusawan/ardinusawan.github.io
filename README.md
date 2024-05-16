@@ -9,5 +9,8 @@
 
 See documentation at https://gohugo.io/.
 
+# Update
+https://github.com/adityatelange/hugo-PaperMod/wiki/Installation#installingupdating-papermod
+
 ## Example
 - https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content
