@@ -8,7 +8,7 @@ thumbnail:
   image: "https://firebase.google.com/static/images/products/auth/auth-5.png"
 cover:
   image: "https://firebase.google.com/static/images/products/auth/auth-5.png"
-  alt: "https://firebase.google.com/static/images/products/auth/auth-5.png"
+  alt: "Auth Multi Platform"
   caption: "Auth Multi Platform"
   relative: true
 ShowToc: true
