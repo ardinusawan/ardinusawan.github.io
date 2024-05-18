@@ -1,7 +1,7 @@
 ---
 author: ["I Dewa Putu Ardi Nusawan"]
 title: "Git-fu"
-date: 2024-04-18
+date: 2024-05-18
 description: "Learn git best practice for 🚢 faster and safer "
 tags: ["git"]
 thumbnail:

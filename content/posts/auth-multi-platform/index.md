@@ -1,7 +1,7 @@
 ---
 author: ["I Dewa Putu Ardi Nusawan"]
 title: "Auth Multi Platform for Mobile and Web"
-date: 2024-04-18
+date: 2024-05-18
 description: "Choose your best option for authentication for Mobile and Web"
 tags: ["authorization", "authentication", "rbac", "user-management"]
 thumbnail:
