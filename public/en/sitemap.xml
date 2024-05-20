@@ -3,22 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/posts/auth-multi-platform/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/authentication/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/authorization/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/elixir/</loc>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/functional-programming/</loc>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/git/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/git-fu/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="id"
@@ -30,29 +36,41 @@
                 href="http://localhost:1313/"
                 />
   </url><url>
+    <loc>http://localhost:1313/posts/intro-functional-programming/</loc>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/neovim/</loc>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/neovim-ftw/</loc>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/rbac/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/user-management/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/vim/</loc>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/cloud-exit/</loc>
-    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/website-in-pi/</loc>
-    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/server/</loc>
-    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/website/</loc>
-    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/archives/</loc>
     <xhtml:link

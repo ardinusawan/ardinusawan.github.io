@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Rbac on I Dewa Putu Ardi Nusawan</title>
-    <link>http://localhost:1313/tags/rbac/</link>
-    <description>Recent content in Rbac on I Dewa Putu Ardi Nusawan</description>
+    <title>Elixir on I Dewa Putu Ardi Nusawan</title>
+    <link>http://localhost:1313/tags/elixir/</link>
+    <description>Recent content in Elixir on I Dewa Putu Ardi Nusawan</description>
     <image>
       <title>I Dewa Putu Ardi Nusawan</title>
       <url>http://localhost:1313/images/papermod-cover.png</url>
@@ -12,13 +12,13 @@
     <generator>Hugo -- 0.125.7</generator>
     <language>en</language>
     <lastBuildDate>Sat, 18 May 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/rbac/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/elixir/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Auth Multi Platform for Mobile and Web</title>
-      <link>http://localhost:1313/posts/auth-multi-platform/</link>
+      <title>Introduction to Functional Programming</title>
+      <link>http://localhost:1313/posts/intro-functional-programming/</link>
       <pubDate>Sat, 18 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/auth-multi-platform/</guid>
-      <description>Choose your best option for authentication for Mobile and Web</description>
+      <guid>http://localhost:1313/posts/intro-functional-programming/</guid>
+      <description>What the f*** is functional programming?</description>
     </item>
   </channel>
 </rss>
