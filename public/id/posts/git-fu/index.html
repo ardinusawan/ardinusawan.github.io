@@ -103,8 +103,8 @@
   "keywords": [
     "git"
   ],
-  "articleBody": "Pengenalan Git, ‘benda’ yang setiap hari digunakan oleh dev namun seringkali diabaiakan 😞\nMau sampai kapan clone branch baru kalo git rebase bikin frustasi?? 😛\nOiya, disini saya akan menggunakan MacOS, jadi untuk pengguna UNIX-like (linux) dapat meniru langkah demi langkah, namun untuk pengguna windows dapat menggunakan menyesuaikan sendiri ya\nPerintah Init git init Langkah paling pertama yang dilakukan untuk menginisiasi git.\nLangkahnya\nBuat folder kosong mkdir test Masuk ke folder, lalu jalankan perintah cd test git init Git akan membuat folder .git. Folder ini berisikan metadata dan object data. Waduh apaan nih? Komponen ➜ ardinusawan.xyz git:(main) ✗ ls -lah .git total 88 drwxr-xr-x 15 ardinusawan staff 480B May 18 11:02 . drwxr-xr-x 18 ardinusawan staff 576B May 16 20:33 .. -rw-r--r-- 1 ardinusawan staff 1.1K May 18 11:02 COMMIT_EDITMSG -rw-r--r-- 1 ardinusawan staff 104B May 15 19:58 FETCH_HEAD -rw-r--r-- 1 ardinusawan staff 21B May 16 23:09 HEAD -rw-r--r-- 1 ardinusawan staff 41B May 16 00:39 ORIG_HEAD -rw-r--r-- 1 ardinusawan staff 421B Feb 4 23:08 config -rw-r--r-- 1 ardinusawan staff 73B Feb 4 21:32 description drwxr-xr-x 16 ardinusawan staff 512B Feb 4 21:32 hooks -rw-r--r-- 1 ardinusawan staff 16K May 18 11:02 index drwxr-xr-x 3 ardinusawan staff 96B Feb 4 21:32 info drwxr-xr-x 4 ardinusawan staff 128B Feb 4 23:07 logs drwxr-xr-x 3 ardinusawan staff 96B Feb 4 21:32 modules drwxr-xr-x 242 ardinusawan staff 7.6K May 18 11:02 objects drwxr-xr-x 6 ardinusawan staff 192B May 16 00:39 refs COMMIT_EDITMSG\nMengandung pesan commit terakhir and daftar perubahan pada file (jika ada) Contoh ➜ ardinusawan.xyz git:(main) ✗ cat .git/COMMIT_EDITMSG Add neovim-ftw draft # Please enter the commit message for your changes. Lines starting # with '#' will be ignored, and an empty message aborts the commit. # # On branch main # Your branch is up to date with 'origin/main'. # # Changes to be committed: # modified: content/posts/auth-multi-platform/index.md # modified: content/posts/git-fu/index.md # new file: content/posts/neovim-ftw/index.md # modified: content/posts/website-in-pi/index.md # modified: public/index.html # modified: public/index.json # modified: public/index.xml # modified: public/posts/auth-multi-platform/index.html # new file: public/posts/freedom-with-neovim/index.html # modified: public/posts/git-fu/index.html # new file: public/posts/neovim-ftw/index.html # modified: public/posts/website-in-pi/index.html # new file: public/tags/neovim/index.html # new file: public/tags/neovim/index.xml # new file: public/tags/neovim/page/1/index.html # new file: public/tags/vim/index.html # new file: public/tags/vim/index.xml # new file: public/tags/vim/page/1/index.html FETCH_HEAD\nHEAD\nBerisikan referensi (branch/commit/tag) yang sedang aktif saat ini ➜ ardinusawan.xyz git:(main) ✗ cat .git/HEAD ref: refs/heads/main ORIG_HEAD\nconfig\nBerisikan config dari repository Contoh ➜ ardinusawan.xyz git:(main) ✗ cat .git/config [core] repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true ignorecase = true precomposeunicode = true [submodule \"themes/PaperMod\"] url = https://github.com/adityatelange/hugo-PaperMod.git active = true [remote \"origin\"] url = git@github.com:ardinusawan/ardinusawan.github.io.git fetch = +refs/heads/*:refs/remotes/origin/* [branch \"main\"] remote = origin merge = refs/heads/main description\nhooks\nindex\ninfo\nlogs\nmodules\nobjects\nrefs\nClone Pull Fast Forward (FF) Push Upstream Fetch Merge Rebase Stash Reflog Patch Submodule ",
-  "wordCount" : "463",
+  "articleBody": "Permasalahan Mengulang kembali apapun yang sudah dilakukan git reflog Git reflog (reference log) menyimpan catatan dari semua perubahan referensi di repository, termasuk HEAD, branches, dan remotes. Reflog memungkinkan untuk melihat riwayat perubahan dan memulihkan commit yang mungkin tidak lagi terhubung ke referensi yang lebih jelas.\nContoh\nac88bcf (HEAD -\u003e main, origin/main, staging) HEAD@{0}: checkout: moving from staging to main ac88bcf (HEAD -\u003e main, origin/main, staging) HEAD@{1}: checkout: moving from main to staging ac88bcf (HEAD -\u003e main, origin/main, staging) HEAD@{2}: pull --rebase: Fast-forward 36ef154 HEAD@{3}: checkout: moving from dashboard to main 156ad31 (origin/dashboard, dashboard) HEAD@{4}: commit: fix build b4c0e21 HEAD@{5}: reset: moving to HEAD Jika ingin balik ke keadaan sebelum pull --rebase, maka cari head sebelumnya\ngit reset HEAD@{3} Kamu dapat menggunakan\ngit reset HEAD@{index} atau\ngit reset --hard HEAD@{index} Apa perbedaannya?\nMenggunakan git reset --hard HEAD@{1} Jika kamu ingin benar-benar mengembalikan repository ke keadaan persis seperti commit HEAD@{1} dan membuang semua perubahan yang belum dikomit atau distage:\ngit reset --hard HEAD@{1} Menggunakan git reset HEAD@{1} Jika kamu ingin mengembalikan staging area ke commit HEAD@{1} tetapi tetap menjaga perubahan yang ada di working directory (misalnya untuk memeriksa atau menyimpan sementara perubahan yang ada):\ngit reset HEAD@{1} Kesimpulan git reset --hard: Mengembalikan repository sepenuhnya ke commit yang ditentukan, termasuk staging area dan working directory.\ngit reset: Mengembalikan commit yang ditentukan hanya untuk staging area, tidak mengubah working directory.\n",
+  "wordCount" : "226",
   "inLanguage": "id",
   "image":"http://localhost:1313/id/posts/git-fu/https:/media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https:/dev-to-uploads.s3.amazonaws.com/i/nsbbm80zgqqypxyqtx1d.png","datePublished": "2024-05-19T00:00:00Z",
   "dateModified": "2024-05-19T00:00:00Z",
@@ -209,7 +209,7 @@
     <div class="post-description">
       Belajar git untuk mempermudah hidupmu
     </div>
-    <div class="post-meta"><span title='2024-05-19 00:00:00 +0000 UTC'>Mei 19, 2024</span>&nbsp;·&nbsp;3 menit&nbsp;·&nbsp;I Dewa Putu Ardi Nusawan&nbsp;|&nbsp;<a href="https://github.com/ardinusawan/ardinusawan.github.io/tree/main/content/posts/git-fu/index.id.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2024-05-19 00:00:00 +0000 UTC'>Mei 19, 2024</span>&nbsp;·&nbsp;2 menit&nbsp;·&nbsp;I Dewa Putu Ardi Nusawan&nbsp;|&nbsp;<a href="https://github.com/ardinusawan/ardinusawan.github.io/tree/main/content/posts/git-fu/index.id.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> 
@@ -223,45 +223,20 @@
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#pengenalan" aria-label="Pengenalan">Pengenalan</a></li>
-                <li>
-                    <a href="#perintah" aria-label="Perintah">Perintah</a><ul>
+                    <a href="#permasalahan" aria-label="Permasalahan">Permasalahan</a><ul>
                         
                 <li>
-                    <a href="#init" aria-label="Init">Init</a><ul>
+                    <a href="#mengulang-kembali-apapun-yang-sudah-dilakukan" aria-label="Mengulang kembali apapun yang sudah dilakukan">Mengulang kembali apapun yang sudah dilakukan</a><ul>
                         
                 <li>
-                    <a href="#komponen" aria-label="Komponen">Komponen</a></li></ul>
+                    <a href="#menggunakan-git-reset---hard-head1" aria-label="Menggunakan git reset --hard HEAD@{1}">Menggunakan git reset --hard HEAD@{1}</a></li>
+                <li>
+                    <a href="#menggunakan-git-reset-head1" aria-label="Menggunakan git reset HEAD@{1}">Menggunakan git reset HEAD@{1}</a></li>
+                <li>
+                    <a href="#kesimpulan" aria-label="Kesimpulan">Kesimpulan</a>
                 </li>
-                <li>
-                    <a href="#clone" aria-label="Clone">Clone</a></li>
-                <li>
-                    <a href="#pull" aria-label="Pull">Pull</a><ul>
-                        
-                <li>
-                    <a href="#fast-forward-ff" aria-label="Fast Forward (FF)">Fast Forward (FF)</a></li></ul>
-                </li>
-                <li>
-                    <a href="#push" aria-label="Push">Push</a><ul>
-                        
-                <li>
-                    <a href="#upstream" aria-label="Upstream">Upstream</a></li></ul>
-                </li>
-                <li>
-                    <a href="#fetch" aria-label="Fetch">Fetch</a></li>
-                <li>
-                    <a href="#merge" aria-label="Merge">Merge</a></li>
-                <li>
-                    <a href="#rebase" aria-label="Rebase">Rebase</a></li>
-                <li>
-                    <a href="#stash" aria-label="Stash">Stash</a></li>
-                <li>
-                    <a href="#reflog" aria-label="Reflog">Reflog</a></li>
-                <li>
-                    <a href="#patch" aria-label="Patch">Patch</a></li>
-                <li>
-                    <a href="#submodule" aria-label="Submodule">Submodule</a>
-                </li>
+            </ul>
+            </li>
             </ul>
             </li>
             </ul>
@@ -269,159 +244,33 @@
     </details>
 </div>
 
-  <div class="post-content"><h1 id="pengenalan">Pengenalan<a hidden class="anchor" aria-hidden="true" href="#pengenalan">#</a></h1>
-<p>Git, &lsquo;benda&rsquo; yang setiap hari digunakan oleh dev namun seringkali diabaiakan 😞</p>
-<p>Mau sampai kapan clone branch baru kalo <code>git rebase</code> bikin frustasi?? 😛</p>
-<p>Oiya, disini saya akan menggunakan MacOS, jadi untuk pengguna UNIX-like (linux) dapat meniru langkah demi langkah, namun untuk pengguna windows dapat menggunakan menyesuaikan sendiri ya</p>
-<h1 id="perintah">Perintah<a hidden class="anchor" aria-hidden="true" href="#perintah">#</a></h1>
-<h2 id="init">Init<a hidden class="anchor" aria-hidden="true" href="#init">#</a></h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git init
-</span></span></code></pre></div><p>Langkah paling pertama yang dilakukan untuk <em>menginisiasi</em> git.</p>
-<p>Langkahnya</p>
-<ol>
-<li>Buat folder kosong
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir <span class="nb">test</span>
-</span></span></code></pre></div></li>
-<li>Masuk ke folder, lalu jalankan perintah
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> <span class="nb">test</span>
-</span></span><span class="line"><span class="cl">git init
-</span></span></code></pre></div></li>
-<li>Git akan membuat folder <code>.git</code>. Folder ini berisikan metadata dan object data. Waduh apaan nih?</li>
-</ol>
-<h3 id="komponen">Komponen<a hidden class="anchor" aria-hidden="true" href="#komponen">#</a></h3>
-<pre tabindex="0"><code>➜  ardinusawan.xyz git:(main) ✗ ls -lah .git
-total 88
-drwxr-xr-x   15 ardinusawan  staff   480B May 18 11:02 .
-drwxr-xr-x   18 ardinusawan  staff   576B May 16 20:33 ..
--rw-r--r--    1 ardinusawan  staff   1.1K May 18 11:02 COMMIT_EDITMSG
--rw-r--r--    1 ardinusawan  staff   104B May 15 19:58 FETCH_HEAD
--rw-r--r--    1 ardinusawan  staff    21B May 16 23:09 HEAD
--rw-r--r--    1 ardinusawan  staff    41B May 16 00:39 ORIG_HEAD
--rw-r--r--    1 ardinusawan  staff   421B Feb  4 23:08 config
--rw-r--r--    1 ardinusawan  staff    73B Feb  4 21:32 description
-drwxr-xr-x   16 ardinusawan  staff   512B Feb  4 21:32 hooks
--rw-r--r--    1 ardinusawan  staff    16K May 18 11:02 index
-drwxr-xr-x    3 ardinusawan  staff    96B Feb  4 21:32 info
-drwxr-xr-x    4 ardinusawan  staff   128B Feb  4 23:07 logs
-drwxr-xr-x    3 ardinusawan  staff    96B Feb  4 21:32 modules
-drwxr-xr-x  242 ardinusawan  staff   7.6K May 18 11:02 objects
-drwxr-xr-x    6 ardinusawan  staff   192B May 16 00:39 refs
-</code></pre><ol>
-<li>
-<p>COMMIT_EDITMSG</p>
-<ul>
-<li>Mengandung pesan commit terakhir and daftar perubahan pada file (jika ada)</li>
-</ul>
- <details>
-     <summary>Contoh</summary>
-<pre><code> ➜  ardinusawan.xyz git:(main) ✗ cat .git/COMMIT_EDITMSG
- Add neovim-ftw draft
- # Please enter the commit message for your changes. Lines starting
- # with '#' will be ignored, and an empty message aborts the commit.
- #
- # On branch main
- # Your branch is up to date with 'origin/main'.
- #
- # Changes to be committed:
- #       modified:   content/posts/auth-multi-platform/index.md
- #       modified:   content/posts/git-fu/index.md
- #       new file:   content/posts/neovim-ftw/index.md
- #       modified:   content/posts/website-in-pi/index.md
- #       modified:   public/index.html
- #       modified:   public/index.json
- #       modified:   public/index.xml
- #       modified:   public/posts/auth-multi-platform/index.html
- #       new file:   public/posts/freedom-with-neovim/index.html
- #       modified:   public/posts/git-fu/index.html
- #       new file:   public/posts/neovim-ftw/index.html
- #       modified:   public/posts/website-in-pi/index.html
- #       new file:   public/tags/neovim/index.html
- #       new file:   public/tags/neovim/index.xml
- #       new file:   public/tags/neovim/page/1/index.html
- #       new file:   public/tags/vim/index.html
- #       new file:   public/tags/vim/index.xml
- #       new file:   public/tags/vim/page/1/index.html
-</code></pre>
- </details>
-</li>
-<li>
-<p>FETCH_HEAD</p>
-</li>
-<li>
-<p>HEAD</p>
-<ul>
-<li>Berisikan referensi (branch/commit/tag) yang sedang aktif saat ini</li>
-</ul>
-<pre tabindex="0"><code>➜  ardinusawan.xyz git:(main) ✗ cat .git/HEAD
-ref: refs/heads/main
-</code></pre></li>
-<li>
-<p>ORIG_HEAD</p>
-</li>
-<li>
-<p>config</p>
-<ul>
-<li>Berisikan config dari repository</li>
-</ul>
- <details>
-     <summary>Contoh</summary>
-<pre><code> ➜  ardinusawan.xyz git:(main) ✗ cat .git/config
- [core]
-         repositoryformatversion = 0
-         filemode = true
-         bare = false
-         logallrefupdates = true
-         ignorecase = true
-         precomposeunicode = true
- [submodule &quot;themes/PaperMod&quot;]
-         url = https://github.com/adityatelange/hugo-PaperMod.git
-         active = true
- [remote &quot;origin&quot;]
-         url = git@github.com:ardinusawan/ardinusawan.github.io.git
-         fetch = +refs/heads/*:refs/remotes/origin/*
- [branch &quot;main&quot;]
-         remote = origin
-         merge = refs/heads/main
-</code></pre>
- </details>
-</li>
-<li>
-<p>description</p>
-</li>
-<li>
-<p>hooks</p>
-</li>
-<li>
-<p>index</p>
-</li>
-<li>
-<p>info</p>
-</li>
-<li>
-<p>logs</p>
-</li>
-<li>
-<p>modules</p>
-</li>
-<li>
-<p>objects</p>
-</li>
-<li>
-<p>refs</p>
-</li>
-</ol>
-<h2 id="clone">Clone<a hidden class="anchor" aria-hidden="true" href="#clone">#</a></h2>
-<h2 id="pull">Pull<a hidden class="anchor" aria-hidden="true" href="#pull">#</a></h2>
-<h3 id="fast-forward-ff">Fast Forward (FF)<a hidden class="anchor" aria-hidden="true" href="#fast-forward-ff">#</a></h3>
-<h2 id="push">Push<a hidden class="anchor" aria-hidden="true" href="#push">#</a></h2>
-<h3 id="upstream">Upstream<a hidden class="anchor" aria-hidden="true" href="#upstream">#</a></h3>
-<h2 id="fetch">Fetch<a hidden class="anchor" aria-hidden="true" href="#fetch">#</a></h2>
-<h2 id="merge">Merge<a hidden class="anchor" aria-hidden="true" href="#merge">#</a></h2>
-<h2 id="rebase">Rebase<a hidden class="anchor" aria-hidden="true" href="#rebase">#</a></h2>
-<h2 id="stash">Stash<a hidden class="anchor" aria-hidden="true" href="#stash">#</a></h2>
-<h2 id="reflog">Reflog<a hidden class="anchor" aria-hidden="true" href="#reflog">#</a></h2>
-<h2 id="patch">Patch<a hidden class="anchor" aria-hidden="true" href="#patch">#</a></h2>
-<h2 id="submodule">Submodule<a hidden class="anchor" aria-hidden="true" href="#submodule">#</a></h2>
+  <div class="post-content"><h1 id="permasalahan">Permasalahan<a hidden class="anchor" aria-hidden="true" href="#permasalahan">#</a></h1>
+<h2 id="mengulang-kembali-apapun-yang-sudah-dilakukan">Mengulang kembali apapun yang sudah dilakukan<a hidden class="anchor" aria-hidden="true" href="#mengulang-kembali-apapun-yang-sudah-dilakukan">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git reflog
+</span></span></code></pre></div><p>Git reflog (reference log) menyimpan catatan dari semua perubahan referensi di repository, termasuk HEAD, branches, dan remotes. Reflog memungkinkan untuk melihat riwayat perubahan dan memulihkan commit yang mungkin tidak lagi terhubung ke referensi yang lebih jelas.</p>
+<p>Contoh</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ac88bcf <span class="o">(</span>HEAD -&gt; main, origin/main, staging<span class="o">)</span> HEAD@<span class="o">{</span>0<span class="o">}</span>: checkout: moving from staging to main
+</span></span><span class="line"><span class="cl">ac88bcf <span class="o">(</span>HEAD -&gt; main, origin/main, staging<span class="o">)</span> HEAD@<span class="o">{</span>1<span class="o">}</span>: checkout: moving from main to staging
+</span></span><span class="line"><span class="cl">ac88bcf <span class="o">(</span>HEAD -&gt; main, origin/main, staging<span class="o">)</span> HEAD@<span class="o">{</span>2<span class="o">}</span>: pull --rebase: Fast-forward
+</span></span><span class="line"><span class="cl">36ef154 HEAD@<span class="o">{</span>3<span class="o">}</span>: checkout: moving from dashboard to main
+</span></span><span class="line"><span class="cl">156ad31 <span class="o">(</span>origin/dashboard, dashboard<span class="o">)</span> HEAD@<span class="o">{</span>4<span class="o">}</span>: commit: fix build
+</span></span><span class="line"><span class="cl">b4c0e21 HEAD@<span class="o">{</span>5<span class="o">}</span>: reset: moving to HEAD
+</span></span></code></pre></div><p>Jika ingin balik ke keadaan sebelum <code>pull --rebase</code>, maka cari head sebelumnya</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git reset HEAD@<span class="o">{</span>3<span class="o">}</span>
+</span></span></code></pre></div><p>Kamu dapat menggunakan</p>
+<pre tabindex="0"><code>git reset HEAD@{index}
+</code></pre><p>atau</p>
+<pre tabindex="0"><code>git reset --hard HEAD@{index}
+</code></pre><p>Apa perbedaannya?</p>
+<h3 id="menggunakan-git-reset---hard-head1">Menggunakan <code>git reset --hard HEAD@{1}</code><a hidden class="anchor" aria-hidden="true" href="#menggunakan-git-reset---hard-head1">#</a></h3>
+<p>Jika kamu ingin benar-benar mengembalikan repository ke keadaan persis seperti commit HEAD@{1} dan membuang semua perubahan yang belum dikomit atau distage:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git reset --hard HEAD@<span class="o">{</span>1<span class="o">}</span>
+</span></span></code></pre></div><h3 id="menggunakan-git-reset-head1">Menggunakan <code>git reset HEAD@{1}</code><a hidden class="anchor" aria-hidden="true" href="#menggunakan-git-reset-head1">#</a></h3>
+<p>Jika kamu ingin mengembalikan staging area ke commit HEAD@{1} tetapi tetap menjaga perubahan yang ada di working directory (misalnya untuk memeriksa atau menyimpan sementara perubahan yang ada):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git reset HEAD@<span class="o">{</span>1<span class="o">}</span>
+</span></span></code></pre></div><h3 id="kesimpulan">Kesimpulan<a hidden class="anchor" aria-hidden="true" href="#kesimpulan">#</a></h3>
+<p><code>git reset --hard</code>: Mengembalikan repository sepenuhnya ke commit yang ditentukan, termasuk staging area dan working directory.</p>
+<p><code>git reset</code>: Mengembalikan commit yang ditentukan hanya untuk staging area, tidak mengubah working directory.</p>
 
 
   </div>
@@ -429,6 +278,13 @@ ref: refs/heads/main
   <footer class="post-footer">
     <ul class="post-tags">
     </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/id/posts/git-details/">
+    <span class="title">« Sebelumnya</span>
+    <br>
+    <span>Git-details</span>
+  </a>
+</nav>
 
 
 <ul class="share-buttons">

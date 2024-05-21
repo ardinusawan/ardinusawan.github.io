@@ -16,145 +16,55 @@ comments: true
 draft: true
 ---
 
-# Pengenalan
-Git, 'benda' yang setiap hari digunakan oleh dev namun seringkali diabaiakan 😞
+# Permasalahan
 
-Mau sampai kapan clone branch baru kalo `git rebase` bikin frustasi?? 😛
-
-Oiya, disini saya akan menggunakan MacOS, jadi untuk pengguna UNIX-like (linux) dapat meniru langkah demi langkah, namun untuk pengguna windows dapat menggunakan menyesuaikan sendiri ya
-
-# Perintah
-
-## Init
+## Mengulang kembali apapun yang sudah dilakukan
 ```sh
-git init
+git reflog
 ```
-Langkah paling pertama yang dilakukan untuk *menginisiasi* git.
 
-Langkahnya
-1. Buat folder kosong
-    ```sh
-    mkdir test
-    ```
-1. Masuk ke folder, lalu jalankan perintah
-    ```sh
-    cd test
-    git init
-    ```
-1. Git akan membuat folder `.git`. Folder ini berisikan metadata dan object data. Waduh apaan nih?
-### Komponen
+Git reflog (reference log) menyimpan catatan dari semua perubahan referensi di repository, termasuk HEAD, branches, dan remotes. Reflog memungkinkan untuk melihat riwayat perubahan dan memulihkan commit yang mungkin tidak lagi terhubung ke referensi yang lebih jelas.
+
+Contoh
+```sh
+ac88bcf (HEAD -> main, origin/main, staging) HEAD@{0}: checkout: moving from staging to main
+ac88bcf (HEAD -> main, origin/main, staging) HEAD@{1}: checkout: moving from main to staging
+ac88bcf (HEAD -> main, origin/main, staging) HEAD@{2}: pull --rebase: Fast-forward
+36ef154 HEAD@{3}: checkout: moving from dashboard to main
+156ad31 (origin/dashboard, dashboard) HEAD@{4}: commit: fix build
+b4c0e21 HEAD@{5}: reset: moving to HEAD
 ```
-➜  ardinusawan.xyz git:(main) ✗ ls -lah .git
-total 88
-drwxr-xr-x   15 ardinusawan  staff   480B May 18 11:02 .
-drwxr-xr-x   18 ardinusawan  staff   576B May 16 20:33 ..
--rw-r--r--    1 ardinusawan  staff   1.1K May 18 11:02 COMMIT_EDITMSG
--rw-r--r--    1 ardinusawan  staff   104B May 15 19:58 FETCH_HEAD
--rw-r--r--    1 ardinusawan  staff    21B May 16 23:09 HEAD
--rw-r--r--    1 ardinusawan  staff    41B May 16 00:39 ORIG_HEAD
--rw-r--r--    1 ardinusawan  staff   421B Feb  4 23:08 config
--rw-r--r--    1 ardinusawan  staff    73B Feb  4 21:32 description
-drwxr-xr-x   16 ardinusawan  staff   512B Feb  4 21:32 hooks
--rw-r--r--    1 ardinusawan  staff    16K May 18 11:02 index
-drwxr-xr-x    3 ardinusawan  staff    96B Feb  4 21:32 info
-drwxr-xr-x    4 ardinusawan  staff   128B Feb  4 23:07 logs
-drwxr-xr-x    3 ardinusawan  staff    96B Feb  4 21:32 modules
-drwxr-xr-x  242 ardinusawan  staff   7.6K May 18 11:02 objects
-drwxr-xr-x    6 ardinusawan  staff   192B May 16 00:39 refs
+
+Jika ingin balik ke keadaan sebelum `pull --rebase`, maka cari head sebelumnya
+```sh
+git reset HEAD@{3}
 ```
-1. COMMIT_EDITMSG
-    - Mengandung pesan commit terakhir and daftar perubahan pada file (jika ada)
-    <details>
-        <summary>Contoh</summary>
 
-        ➜  ardinusawan.xyz git:(main) ✗ cat .git/COMMIT_EDITMSG
-        Add neovim-ftw draft
-        # Please enter the commit message for your changes. Lines starting
-        # with '#' will be ignored, and an empty message aborts the commit.
-        #
-        # On branch main
-        # Your branch is up to date with 'origin/main'.
-        #
-        # Changes to be committed:
-        #       modified:   content/posts/auth-multi-platform/index.md
-        #       modified:   content/posts/git-fu/index.md
-        #       new file:   content/posts/neovim-ftw/index.md
-        #       modified:   content/posts/website-in-pi/index.md
-        #       modified:   public/index.html
-        #       modified:   public/index.json
-        #       modified:   public/index.xml
-        #       modified:   public/posts/auth-multi-platform/index.html
-        #       new file:   public/posts/freedom-with-neovim/index.html
-        #       modified:   public/posts/git-fu/index.html
-        #       new file:   public/posts/neovim-ftw/index.html
-        #       modified:   public/posts/website-in-pi/index.html
-        #       new file:   public/tags/neovim/index.html
-        #       new file:   public/tags/neovim/index.xml
-        #       new file:   public/tags/neovim/page/1/index.html
-        #       new file:   public/tags/vim/index.html
-        #       new file:   public/tags/vim/index.xml
-        #       new file:   public/tags/vim/page/1/index.html
-    </details>
-1. FETCH_HEAD
+Kamu dapat menggunakan 
+```
+git reset HEAD@{index}
+```
+atau
+```
+git reset --hard HEAD@{index}
+```
+Apa perbedaannya?
 
-1. HEAD
-   - Berisikan referensi (branch/commit/tag) yang sedang aktif saat ini
-   ```
-   ➜  ardinusawan.xyz git:(main) ✗ cat .git/HEAD
-   ref: refs/heads/main
-   ```
-1. ORIG_HEAD
-1. config
-    - Berisikan config dari repository
-    <details>
-        <summary>Contoh</summary>
+### Menggunakan `git reset --hard HEAD@{1}`
 
-        ➜  ardinusawan.xyz git:(main) ✗ cat .git/config
-        [core]
-                repositoryformatversion = 0
-                filemode = true
-                bare = false
-                logallrefupdates = true
-                ignorecase = true
-                precomposeunicode = true
-        [submodule "themes/PaperMod"]
-                url = https://github.com/adityatelange/hugo-PaperMod.git
-                active = true
-        [remote "origin"]
-                url = git@github.com:ardinusawan/ardinusawan.github.io.git
-                fetch = +refs/heads/*:refs/remotes/origin/*
-        [branch "main"]
-                remote = origin
-                merge = refs/heads/main
+Jika kamu ingin benar-benar mengembalikan repository ke keadaan persis seperti commit HEAD@{1} dan membuang semua perubahan yang belum dikomit atau distage:
+```sh
+git reset --hard HEAD@{1}
+```
 
-    </details>
-1. description
-1. hooks
-1. index
-1. info
-1. logs
-1. modules
-1. objects
-1. refs
+### Menggunakan `git reset HEAD@{1}`
 
-## Clone
+Jika kamu ingin mengembalikan staging area ke commit HEAD@{1} tetapi tetap menjaga perubahan yang ada di working directory (misalnya untuk memeriksa atau menyimpan sementara perubahan yang ada):
+```sh
+git reset HEAD@{1}
+```
 
-## Pull
-### Fast Forward (FF)
+### Kesimpulan
+`git reset --hard`: Mengembalikan repository sepenuhnya ke commit yang ditentukan, termasuk staging area dan working directory.
 
-## Push
-### Upstream
-
-## Fetch
-
-## Merge
-
-## Rebase
-
-## Stash
-
-## Reflog
-
-## Patch
-
-## Submodule
+`git reset`: Mengembalikan commit yang ditentukan hanya untuk staging area, tidak mengubah working directory.
