@@ -14,6 +14,7 @@ cover:
 ShowToc: true
 comments: true
 draft: true
+asciinema: true
 ---
 
 # Permasalahan
@@ -68,3 +69,14 @@ git reset HEAD@{1}
 `git reset --hard`: Mengembalikan repository sepenuhnya ke commit yang ditentukan, termasuk staging area dan working directory.
 
 `git reset`: Mengembalikan commit yang ditentukan hanya untuk staging area, tidak mengubah working directory.
+
+## Memperbaiki commit terakhir
+```
+git add . # Atau menambahkan file individu
+git commit --ammend --no-edit
+```
+{{< asciinema key="git-fu/2-ammend-no-edit" >}}
+
+
+# Sumber Referensi
+- ["Oh Shit, Git!?!"](https://ohshitgit.com/)
