@@ -21,7 +21,7 @@ asciinema: true
 
 ## Mengulang kembali apapun yang sudah dilakukan
 
-Bayangkan Anda telah melakukan beberapa commit, tetapi kemudian Anda melakukan `git reset --hard HEAD~2` dan kehilangan dua commit terakhir. Anda dapat memulihkannya dengan cara berikut:
+Bayangkan kamu telah melakukan beberapa commit, tetapi kemudian kamu melakukan `git reset --hard HEAD~2` dan kehilangan dua commit terakhir. Kamu dapat memulihkannya dengan cara berikut:
 
 {{< asciinema key="git-fu/reflog" >}}
 
@@ -34,7 +34,7 @@ git reflog
 c4f2a27 (HEAD -> main) HEAD@{0}: reset: moving to HEAD~2
 a3d5b8e HEAD@{1}: commit: Menambahkan file README
 ```
-1. Anda ingin mengembalikan commit a3d5b8e:
+1. Kamu ingin mengembalikan commit a3d5b8e:
 ```sh
 git reset --hard a3d5b8e
 ```
@@ -212,18 +212,18 @@ Membantu jika ingin mengembalikan kondisi file sesuai pada commit tertentu
 ## Push Paksa (Force Push)
 **Penjelasan kali ini akan lebih panjang, karena merupakan tindakan yang berbahaya!**
 
-Force push (`git push --force`) adalah tindakan untuk memaksa mengirimkan perubahan dari repository lokal ke repository remote, menggantikan riwayat commit yang ada di remote. Ini berguna ketika Anda perlu memperbarui riwayat commit di remote setelah melakukan perubahan seperti `rebase` atau `amend`.
+Force push (`git push --force`) adalah tindakan untuk memaksa mengirimkan perubahan dari repository lokal ke repository remote, menggantikan riwayat commit yang ada di remote. Ini berguna ketika kamu perlu memperbarui riwayat commit di remote setelah melakukan perubahan seperti `rebase` atau `amend`.
 
 ### Mengapa Force Push Berbahaya?
 
 Force push bisa berbahaya karena:
 - Menghapus riwayat commit di remote yang mungkin penting.
-- Membuat commit rekan tim Anda hilang jika mereka juga bekerja pada branch yang sama.
-- Menyebabkan konflik jika orang lain telah menggabungkan (merge) commit yang Anda ganti.
+- Membuat commit rekan tim kamu hilang jika mereka juga bekerja pada branch yang sama.
+- Menyebabkan konflik jika orang lain telah menggabungkan (merge) commit yang kamu ganti.
 
 ### `--force`
 
-Misalkan Anda telah mengubah riwayat commit di branch `main` dengan melakukan rebase atau mengedit commit, dan Anda ingin memaksa mengupdate remote repository.
+Misalkan kamu telah mengubah riwayat commit di branch `main` dengan melakukan rebase atau mengedit commit, dan kamu ingin memaksa mengupdate remote repository.
 
 1. Buat beberapa perubahan dan lakukan commit:
     ```bash
@@ -234,20 +234,20 @@ Misalkan Anda telah mengubah riwayat commit di branch `main` dengan melakukan re
     git push --force origin main
     ```
 
-Dengan menggunakan `--force`, Anda menggantikan riwayat commit yang ada di remote dengan riwayat commit baru dari repository lokal Anda.
+Dengan menggunakan `--force`, kamu menggantikan riwayat commit yang ada di remote dengan riwayat commit baru dari repository lokal kamu.
 
 ### `--force-with-lease`
 
-`--force-with-lease` adalah opsi yang lebih aman daripada `--force` karena melakukan pemeriksaan tambahan sebelum melakukan push. Opsi ini memastikan bahwa Anda hanya akan memaksa push jika tidak ada orang lain yang telah melakukan push ke remote sejak Anda terakhir kali menarik (pull) perubahan.
+`--force-with-lease` adalah opsi yang lebih aman daripada `--force` karena melakukan pemeriksaan tambahan sebelum melakukan push. Opsi ini memastikan bahwa kamu hanya akan memaksa push jika tidak ada orang lain yang telah melakukan push ke remote sejak kamu terakhir kali menarik (pull) perubahan.
 
 #### Keuntungan Menggunakan `--force-with-lease`
 
-- Mencegah Anda secara tidak sengaja menimpa commit orang lain.
-- Memberikan peringatan jika terdapat perubahan di remote yang belum Anda tarik (pull).
+- Mencegah kamu secara tidak sengaja menimpa commit orang lain.
+- Memberikan peringatan jika terdapat perubahan di remote yang belum kamu tarik (pull).
 
 #### Contoh Penggunaan `--force-with-lease`
 
-Misalkan Anda melakukan perubahan di branch `main` dan ingin memastikan tidak ada yang telah melakukan push ke remote sejak terakhir kali Anda menarik perubahan.
+Misalkan kamu melakukan perubahan di branch `main` dan ingin memastikan tidak ada yang telah melakukan push ke remote sejak terakhir kali kamu menarik perubahan.
 
 1. Buat beberapa perubahan dan lakukan commit:
     ```bash
@@ -258,11 +258,11 @@ Misalkan Anda melakukan perubahan di branch `main` dan ingin memastikan tidak ad
     git push --force-with-lease origin main
     ```
 
-Jika tidak ada orang lain yang melakukan push ke branch `main` di remote, perubahan Anda akan diterima. Namun, jika ada perubahan di remote yang belum Anda tarik, Git akan memberikan peringatan dan menghentikan push tersebut, mencegah potensi konflik.
+Jika tidak ada orang lain yang melakukan push ke branch `main` di remote, perubahan kamu akan diterima. Namun, jika ada perubahan di remote yang belum kamu tarik, Git akan memberikan peringatan dan menghentikan push tersebut, mencegah potensi konflik.
 
 ### Kesimpulan
 
-Dengan menggunakan `--force-with-lease`, Anda mendapatkan perlindungan tambahan dibandingkan `--force`, sehingga lebih aman untuk digunakan dalam lingkungan kolaboratif. Selalu berhati-hati saat menggunakan force push untuk menghindari kehilangan riwayat commit yang penting.
+Dengan menggunakan `--force-with-lease`, kamu mendapatkan perlindungan tambahan dibandingkan `--force`, sehingga lebih aman untuk digunakan dalam lingkungan kolaboratif. Selalu berhati-hati saat menggunakan force push untuk menghindari kehilangan riwayat commit yang penting.
 
 # Sumber Referensi
 - ["Oh Shit, Git!?!"](https://ohshitgit.com/)
