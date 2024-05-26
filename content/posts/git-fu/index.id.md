@@ -13,7 +13,7 @@ cover:
   relative: true
 ShowToc: true
 comments: true
-draft: true
+draft: false
 asciinema: true
 ---
 
@@ -154,7 +154,7 @@ Perbedaan revert dengan `rebase -> drop` atau `reset --hard`, revert membentuk c
 
 Jika ditengah proses rebase ingin membatalkan, gunakan `git rebase --abort`
 
-## Stash
+## Menyimpan state
 
 ```sh
 git stash save "stash name"
@@ -186,7 +186,36 @@ Mirip ketika bermain game dan menyimpan *save*, pada saat ngoding kita dapat men
     ```
     Maka akan *load stash* trakhir. Perintah ini sama dengan `git stash apply stash@{0}`
 
-## reflog
+## Mengembalikan keadaan file pada keadaan sebelumnya
+
+```sh
+git checkout [hash] -- path/to/file
+```
+
+Membantu jika ingin mengembalikan kondisi file sesuai pada commit tertentu
+
+{{< asciinema key="git-fu/checkout-commited" >}}
+
+## Mesin waktu
+
+Bayangkan Anda telah melakukan beberapa commit, tetapi kemudian Anda melakukan `git reset --hard HEAD~2` dan kehilangan dua commit terakhir. Anda dapat memulihkannya dengan cara berikut:
+
+1. Cek log reflog:
+```sh
+git reflog
+```
+1. Outputnya mungkin menunjukkan:
+```sh
+c4f2a27 (HEAD -> main) HEAD@{0}: reset: moving to HEAD~2
+a3d5b8e HEAD@{1}: commit: Menambahkan file README
+```
+1. Anda ingin mengembalikan commit a3d5b8e:
+```sh
+git reset --hard a3d5b8e
+```
+Sekarang, commit Anda telah dipulihkan.
+
+{{< asciinema key="git-fu/reflog" >}}
 
 ## Sumber Referensi
 - ["Oh Shit, Git!?!"](https://ohshitgit.com/)
@@ -195,3 +224,4 @@ Mirip ketika bermain game dan menyimpan *save*, pada saat ngoding kita dapat men
 - Editor [neovim](https://github.com/neovim/neovim)
 - Terminal direkam dengan [asciinema](https://github.com/asciinema/asciinema)
 - Pemutar menggunakan [asciinema-player](https://github.com/asciinema/asciinema-player)
+- Git interface [tig](https://github.com/jonas/tig)

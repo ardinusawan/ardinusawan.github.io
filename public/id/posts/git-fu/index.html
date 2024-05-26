@@ -106,8 +106,8 @@
   "keywords": [
     "git"
   ],
-  "articleBody": "Permasalahan Mengulang kembali apapun yang sudah dilakukan git reflog Git reflog (reference log) menyimpan catatan dari semua perubahan referensi di repository, termasuk HEAD, branches, dan remotes. Reflog memungkinkan untuk melihat riwayat perubahan dan memulihkan commit yang mungkin tidak lagi terhubung ke referensi yang lebih jelas.\nContoh\nac88bcf (HEAD -\u003e main, origin/main, staging) HEAD@{0}: checkout: moving from staging to main ac88bcf (HEAD -\u003e main, origin/main, staging) HEAD@{1}: checkout: moving from main to staging ac88bcf (HEAD -\u003e main, origin/main, staging) HEAD@{2}: pull --rebase: Fast-forward 36ef154 HEAD@{3}: checkout: moving from dashboard to main 156ad31 (origin/dashboard, dashboard) HEAD@{4}: commit: fix build b4c0e21 HEAD@{5}: reset: moving to HEAD Jika ingin balik ke keadaan sebelum pull --rebase, maka cari head sebelumnya\ngit reset HEAD@{3} Kamu dapat menggunakan\ngit reset HEAD@{index} atau\ngit reset --hard HEAD@{index} Apa perbedaannya?\ngit reset --hard HEAD@{1} Jika kamu ingin benar-benar mengembalikan repository ke keadaan persis seperti commit HEAD@{1} dan membuang semua perubahan yang belum dikomit atau distage:\ngit reset --hard HEAD@{1} git reset HEAD@{1} Jika kamu ingin mengembalikan staging area ke commit HEAD@{1} tetapi tetap menjaga perubahan yang ada di working directory (misalnya untuk memeriksa atau menyimpan sementara perubahan yang ada):\ngit reset HEAD@{1} Kesimpulan git reset --hard: Mengembalikan repository sepenuhnya ke commit yang ditentukan, termasuk staging area dan working directory.\ngit reset: Mengembalikan commit yang ditentukan hanya untuk staging area, tidak mengubah working directory.\nMemperbaiki commit terakhir git add . # Atau menambahkan file individu git commit --amend --no-edit --amend artinya merubah. --no-edit artinya tanpa edit Merubah tanpa edit? Tapi barusan kita mengedit isi commit sebelumnnya?\nammend ini adalah untuk commit message, bukan isinya. Masih belum paham?\nMemperbaiki pesan commit terakhir git commit --amend Disini tanpa menggunakan --no-edit, jadi hanya mengganti pesan commitnya saja. Sudah jelas kan?\nTanpa sengaja membuat commit di branch master, harusnya di branch baru Pernah ga sih lupa checkout ke branch tetapi langsung ngoding di branch master(atau branch lainnya)? 🤣\nTenang, caranya gampang banget.\ngit reset HEAD~ –hard Pada branch master, buat dulu branch baru git branch nama-branch-baru Reset master ke commit sebelumnya git reset HEAD~ --hard Checkout ke branch yang benar git branch nama-branch-baru git rebase -i HEAD~n Cara yang tadi berlaku jika hanya ada 1 commit yang di reset. Tapi kalo terlanjur banyak commit di master, gimana dong?\nLangkah yang berbeda hanya pada step ke 2\nDrop commit yang ingin dihapus git rebase -i HEAD~n # n adalah perkiraan berapa commit yang ingin di hapus Pada editor, cari commit mana yang ingin di hapus. Ubah pick ke drop. Lalu simpan. git cherry-pick commit-hash Ada cara yang lebih simple dan lebih sering saya gunakan, cherry-pick\ngit cherry-pick commit-hash Setelah melakukan cherry pick, dapat checkout kembali ke branch yang salah dan melalukan git reset HEAD~ --hard atau git rebase -i HEAD~n\nCatatan Jika commit pada master sudah terlanjur di push, bagaimana?\nHarus di force push 😢. Maka dari itu, branch master/main harus di guard agar tidak bisa commit langsung ya, hanya dapat di merge dari branch lain.\nUntuk cara force push akan ada penjelasannya tersendiri.\nMembatalkan commit yang lampau git revert [saved hash] Perbedaan revert dengan rebase -\u003e drop atau reset --hard, revert membentuk commit baru. Jadi nanti kamu bisa revert commit yang me-revert commit 🤣\nJika ditengah proses rebase ingin membatalkan, gunakan git rebase --abort\nStash git stash save \"stash name\" Mirip ketika bermain game dan menyimpan save, pada saat ngoding kita dapat menyimpan state saat ini dan men-load kemudian\nstash state git stash save \"nama custom\" # nama stash opsional Jika tanpa nama custom sh git stash save List stash git stash list Load state git stash apply stash@{n} # n: posisi stash yang didapatkan pada stash list Jika tanpa stash@{n} git stash apply Maka akan load stash trakhir. Perintah ini sama dengan git stash apply stash@{0} reflog Sumber Referensi “Oh Shit, Git!?!” Peralatan Editor neovim Terminal direkam dengan asciinema Pemutar menggunakan asciinema-player ",
-  "wordCount" : "639",
+  "articleBody": "Permasalahan Mengulang kembali apapun yang sudah dilakukan git reflog Git reflog (reference log) menyimpan catatan dari semua perubahan referensi di repository, termasuk HEAD, branches, dan remotes. Reflog memungkinkan untuk melihat riwayat perubahan dan memulihkan commit yang mungkin tidak lagi terhubung ke referensi yang lebih jelas.\nContoh\nac88bcf (HEAD -\u003e main, origin/main, staging) HEAD@{0}: checkout: moving from staging to main ac88bcf (HEAD -\u003e main, origin/main, staging) HEAD@{1}: checkout: moving from main to staging ac88bcf (HEAD -\u003e main, origin/main, staging) HEAD@{2}: pull --rebase: Fast-forward 36ef154 HEAD@{3}: checkout: moving from dashboard to main 156ad31 (origin/dashboard, dashboard) HEAD@{4}: commit: fix build b4c0e21 HEAD@{5}: reset: moving to HEAD Jika ingin balik ke keadaan sebelum pull --rebase, maka cari head sebelumnya\ngit reset HEAD@{3} Kamu dapat menggunakan\ngit reset HEAD@{index} atau\ngit reset --hard HEAD@{index} Apa perbedaannya?\ngit reset --hard HEAD@{1} Jika kamu ingin benar-benar mengembalikan repository ke keadaan persis seperti commit HEAD@{1} dan membuang semua perubahan yang belum dikomit atau distage:\ngit reset --hard HEAD@{1} git reset HEAD@{1} Jika kamu ingin mengembalikan staging area ke commit HEAD@{1} tetapi tetap menjaga perubahan yang ada di working directory (misalnya untuk memeriksa atau menyimpan sementara perubahan yang ada):\ngit reset HEAD@{1} Kesimpulan git reset --hard: Mengembalikan repository sepenuhnya ke commit yang ditentukan, termasuk staging area dan working directory.\ngit reset: Mengembalikan commit yang ditentukan hanya untuk staging area, tidak mengubah working directory.\nMemperbaiki commit terakhir git add . # Atau menambahkan file individu git commit --amend --no-edit --amend artinya merubah. --no-edit artinya tanpa edit Merubah tanpa edit? Tapi barusan kita mengedit isi commit sebelumnnya?\nammend ini adalah untuk commit message, bukan isinya. Masih belum paham?\nMemperbaiki pesan commit terakhir git commit --amend Disini tanpa menggunakan --no-edit, jadi hanya mengganti pesan commitnya saja. Sudah jelas kan?\nTanpa sengaja membuat commit di branch master, harusnya di branch baru Pernah ga sih lupa checkout ke branch tetapi langsung ngoding di branch master(atau branch lainnya)? 🤣\nTenang, caranya gampang banget.\ngit reset HEAD~ –hard Pada branch master, buat dulu branch baru git branch nama-branch-baru Reset master ke commit sebelumnya git reset HEAD~ --hard Checkout ke branch yang benar git branch nama-branch-baru git rebase -i HEAD~n Cara yang tadi berlaku jika hanya ada 1 commit yang di reset. Tapi kalo terlanjur banyak commit di master, gimana dong?\nLangkah yang berbeda hanya pada step ke 2\nDrop commit yang ingin dihapus git rebase -i HEAD~n # n adalah perkiraan berapa commit yang ingin di hapus Pada editor, cari commit mana yang ingin di hapus. Ubah pick ke drop. Lalu simpan. git cherry-pick commit-hash Ada cara yang lebih simple dan lebih sering saya gunakan, cherry-pick\ngit cherry-pick commit-hash Setelah melakukan cherry pick, dapat checkout kembali ke branch yang salah dan melalukan git reset HEAD~ --hard atau git rebase -i HEAD~n\nCatatan Jika commit pada master sudah terlanjur di push, bagaimana?\nHarus di force push 😢. Maka dari itu, branch master/main harus di guard agar tidak bisa commit langsung ya, hanya dapat di merge dari branch lain.\nUntuk cara force push akan ada penjelasannya tersendiri.\nMembatalkan commit yang lampau git revert [saved hash] Perbedaan revert dengan rebase -\u003e drop atau reset --hard, revert membentuk commit baru. Jadi nanti kamu bisa revert commit yang me-revert commit 🤣\nJika ditengah proses rebase ingin membatalkan, gunakan git rebase --abort\nMenyimpan state git stash save \"stash name\" Mirip ketika bermain game dan menyimpan save, pada saat ngoding kita dapat menyimpan state saat ini dan men-load kemudian\nstash state git stash save \"nama custom\" # nama stash opsional Jika tanpa nama custom sh git stash save List stash git stash list Load state git stash apply stash@{n} # n: posisi stash yang didapatkan pada stash list Jika tanpa stash@{n} git stash apply Maka akan load stash trakhir. Perintah ini sama dengan git stash apply stash@{0} Mengembalikan keadaan file pada keadaan sebelumnya git checkout [hash] -- path/to/file Membantu jika ingin mengembalikan kondisi file sesuai pada commit tertentu\nMesin waktu Bayangkan Anda telah melakukan beberapa commit, tetapi kemudian Anda melakukan git reset --hard HEAD~2 dan kehilangan dua commit terakhir. Anda dapat memulihkannya dengan cara berikut:\nCek log reflog: git reflog Outputnya mungkin menunjukkan: c4f2a27 (HEAD -\u003e main) HEAD@{0}: reset: moving to HEAD~2 a3d5b8e HEAD@{1}: commit: Menambahkan file README Anda ingin mengembalikan commit a3d5b8e: git reset --hard a3d5b8e Sekarang, commit Anda telah dipulihkan.\nSumber Referensi “Oh Shit, Git!?!” Peralatan Editor neovim Terminal direkam dengan asciinema Pemutar menggunakan asciinema-player Git interface tig ",
+  "wordCount" : "727",
   "inLanguage": "id",
   "image":"http://localhost:1313/id/posts/git-fu/https:/media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https:/dev-to-uploads.s3.amazonaws.com/i/nsbbm80zgqqypxyqtx1d.png","datePublished": "2024-05-19T00:00:00Z",
   "dateModified": "2024-05-19T00:00:00Z",
@@ -202,17 +202,11 @@
     <div class="breadcrumbs"><a href="http://localhost:1313/id/">Beranda</a>&nbsp;»&nbsp;<a href="http://localhost:1313/id/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Git-fu
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
     </h1>
     <div class="post-description">
       Belajar git untuk mempermudah hidupmu
     </div>
-    <div class="post-meta"><span title='2024-05-19 00:00:00 +0000 UTC'>Mei 19, 2024</span>&nbsp;·&nbsp;3 menit&nbsp;·&nbsp;I Dewa Putu Ardi Nusawan&nbsp;|&nbsp;<a href="https://github.com/ardinusawan/ardinusawan.github.io/tree/main/content/posts/git-fu/index.id.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2024-05-19 00:00:00 +0000 UTC'>Mei 19, 2024</span>&nbsp;·&nbsp;4 menit&nbsp;·&nbsp;I Dewa Putu Ardi Nusawan&nbsp;|&nbsp;<a href="https://github.com/ardinusawan/ardinusawan.github.io/tree/main/content/posts/git-fu/index.id.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> 
@@ -257,9 +251,11 @@
                 <li>
                     <a href="#membatalkan-commit-yang-lampau" aria-label="Membatalkan commit yang lampau">Membatalkan commit yang lampau</a></li>
                 <li>
-                    <a href="#stash" aria-label="Stash">Stash</a></li>
+                    <a href="#menyimpan-state" aria-label="Menyimpan state">Menyimpan state</a></li>
                 <li>
-                    <a href="#reflog" aria-label="reflog">reflog</a></li>
+                    <a href="#mengembalikan-keadaan-file-pada-keadaan-sebelumnya" aria-label="Mengembalikan keadaan file pada keadaan sebelumnya">Mengembalikan keadaan file pada keadaan sebelumnya</a></li>
+                <li>
+                    <a href="#mesin-waktu" aria-label="Mesin waktu">Mesin waktu</a></li>
                 <li>
                     <a href="#sumber-referensi" aria-label="Sumber Referensi">Sumber Referensi</a></li>
                 <li>
@@ -473,7 +469,7 @@ git commit --amend --no-edit
 
 <p>Perbedaan revert dengan <code>rebase -&gt; drop</code> atau <code>reset --hard</code>, revert membentuk commit baru. Jadi nanti kamu bisa <em>revert</em> commit yang me-<em>revert</em> commit 🤣</p>
 <p>Jika ditengah proses rebase ingin membatalkan, gunakan <code>git rebase --abort</code></p>
-<h2 id="stash">Stash<a hidden class="anchor" aria-hidden="true" href="#stash">#</a></h2>
+<h2 id="menyimpan-state">Menyimpan state<a hidden class="anchor" aria-hidden="true" href="#menyimpan-state">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git stash save <span class="s2">&#34;stash name&#34;</span>
 </span></span></code></pre></div><p>Mirip ketika bermain game dan menyimpan <em>save</em>, pada saat ngoding kita dapat menyimpan <em>state</em> saat ini dan men-<em>load</em> kemudian</p>
 <div id='git-fu/stash'></div>
@@ -511,7 +507,67 @@ git commit --amend --no-edit
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git stash apply
 </span></span></code></pre></div>Maka akan <em>load stash</em> trakhir. Perintah ini sama dengan <code>git stash apply stash@{0}</code></li>
 </ol>
-<h2 id="reflog">reflog<a hidden class="anchor" aria-hidden="true" href="#reflog">#</a></h2>
+<h2 id="mengembalikan-keadaan-file-pada-keadaan-sebelumnya">Mengembalikan keadaan file pada keadaan sebelumnya<a hidden class="anchor" aria-hidden="true" href="#mengembalikan-keadaan-file-pada-keadaan-sebelumnya">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git checkout <span class="o">[</span>hash<span class="o">]</span> -- path/to/file
+</span></span></code></pre></div><p>Membantu jika ingin mengembalikan kondisi file sesuai pada commit tertentu</p>
+<div id='git-fu/checkout-commited'></div>
+<script src="http://localhost:1313//js/asciinema-player.min.js"></script>
+<script>
+    AsciinemaPlayer.create('/casts/git-fu\/checkout-commited.cast', document.getElementById('git-fu\/checkout-commited'), {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     });
+</script>
+
+<h2 id="mesin-waktu">Mesin waktu<a hidden class="anchor" aria-hidden="true" href="#mesin-waktu">#</a></h2>
+<p>Bayangkan Anda telah melakukan beberapa commit, tetapi kemudian Anda melakukan <code>git reset --hard HEAD~2</code> dan kehilangan dua commit terakhir. Anda dapat memulihkannya dengan cara berikut:</p>
+<ol>
+<li>Cek log reflog:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git reflog
+</span></span></code></pre></div><ol>
+<li>Outputnya mungkin menunjukkan:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">c4f2a27 <span class="o">(</span>HEAD -&gt; main<span class="o">)</span> HEAD@<span class="o">{</span>0<span class="o">}</span>: reset: moving to HEAD~2
+</span></span><span class="line"><span class="cl">a3d5b8e HEAD@<span class="o">{</span>1<span class="o">}</span>: commit: Menambahkan file README
+</span></span></code></pre></div><ol>
+<li>Anda ingin mengembalikan commit a3d5b8e:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git reset --hard a3d5b8e
+</span></span></code></pre></div><p>Sekarang, commit Anda telah dipulihkan.</p>
+<div id='git-fu/reflog'></div>
+<script src="http://localhost:1313//js/asciinema-player.min.js"></script>
+<script>
+    AsciinemaPlayer.create('/casts/git-fu\/reflog.cast', document.getElementById('git-fu\/reflog'), {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     });
+</script>
+
 <h2 id="sumber-referensi">Sumber Referensi<a hidden class="anchor" aria-hidden="true" href="#sumber-referensi">#</a></h2>
 <ul>
 <li><a href="https://ohshitgit.com/">&ldquo;Oh Shit, Git!?!&rdquo;</a></li>
@@ -521,6 +577,7 @@ git commit --amend --no-edit
 <li>Editor <a href="https://github.com/neovim/neovim">neovim</a></li>
 <li>Terminal direkam dengan <a href="https://github.com/asciinema/asciinema">asciinema</a></li>
 <li>Pemutar menggunakan <a href="https://github.com/asciinema/asciinema-player">asciinema-player</a></li>
+<li>Git interface <a href="https://github.com/jonas/tig">tig</a></li>
 </ul>
 
 
