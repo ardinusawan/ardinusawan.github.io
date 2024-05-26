@@ -320,12 +320,11 @@
 <li>Anda ingin mengembalikan commit a3d5b8e:</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git reset --hard a3d5b8e
-</span></span></code></pre></div><hr>
-<p>Untuk memulihkan, kamu dapat menggunakan</p>
+</span></span></code></pre></div><p>Untuk memulihkan, kamu dapat menggunakan</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git reset HEAD@<span class="o">{</span>index<span class="o">}</span>
 </span></span></code></pre></div><p>atau</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git reset --hard HEAD@<span class="o">{</span>index<span class="o">}</span>
-</span></span></code></pre></div><p>Apa perbedaannya?</p>
+</span></span></code></pre></div><p><strong>Apa perbedaannya?</strong></p>
 <h3 id="git-reset---hard-head1"><code>git reset --hard HEAD@{1}</code><a hidden class="anchor" aria-hidden="true" href="#git-reset---hard-head1">#</a></h3>
 <p>Jika kamu ingin benar-benar mengembalikan repository ke keadaan persis seperti commit HEAD@{1} dan membuang semua perubahan yang belum dikomit atau distage:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git reset --hard HEAD@<span class="o">{</span>1<span class="o">}</span>
@@ -335,6 +334,7 @@
 </span></span></code></pre></div><h3 id="kesimpulan">Kesimpulan<a hidden class="anchor" aria-hidden="true" href="#kesimpulan">#</a></h3>
 <p><code>git reset --hard</code>: Mengembalikan repository sepenuhnya ke commit yang ditentukan, termasuk staging area dan working directory.</p>
 <p><code>git reset</code>: Mengembalikan commit yang ditentukan hanya untuk staging area, tidak mengubah working directory.</p>
+<hr>
 <h2 id="memperbaiki-commit-terakhir">Memperbaiki commit terakhir<a hidden class="anchor" aria-hidden="true" href="#memperbaiki-commit-terakhir">#</a></h2>
 <pre tabindex="0"><code>git add . # Atau menambahkan file individu
 git commit --amend --no-edit
@@ -365,6 +365,7 @@ git commit --amend --no-edit
 </ul>
 <p>Merubah tanpa edit? Tapi barusan kita mengedit isi commit sebelumnnya?</p>
 <p><em>ammend</em> ini adalah untuk commit message, bukan isinya. Masih belum paham?</p>
+<hr>
 <h2 id="memperbaiki-pesan-commit-terakhir">Memperbaiki pesan commit terakhir<a hidden class="anchor" aria-hidden="true" href="#memperbaiki-pesan-commit-terakhir">#</a></h2>
 <pre tabindex="0"><code>git commit --amend
 </code></pre><div id='git-fu/amend'></div>
@@ -389,6 +390,7 @@ git commit --amend --no-edit
 </script>
 
 <p>Disini tanpa menggunakan  <code>--no-edit</code>, jadi hanya mengganti pesan <em>commit</em>nya saja. Sudah jelas kan?</p>
+<hr>
 <h2 id="tanpa-sengaja-membuat-commit-di-branch-master-harusnya-di-branch-baru">Tanpa sengaja membuat commit di branch master, harusnya di branch baru<a hidden class="anchor" aria-hidden="true" href="#tanpa-sengaja-membuat-commit-di-branch-master-harusnya-di-branch-baru">#</a></h2>
 <p>Pernah ga sih lupa checkout ke branch tetapi langsung ngoding di branch master(atau branch lainnya)? 🤣</p>
 <p>Tenang, caranya gampang banget.</p>
@@ -484,6 +486,7 @@ git commit --amend --no-edit
 <p>Jika commit pada master sudah terlanjur di push, bagaimana?</p>
 <p>Harus di force push 😢. Maka dari itu, <em>branch</em> master/main harus di <em>guard</em> agar tidak bisa commit langsung ya, hanya dapat di merge dari branch lain.</p>
 <p>Untuk cara force push akan ada penjelasannya tersendiri.</p>
+<hr>
 <h2 id="membatalkan-commit-yang-lampau">Membatalkan <em>commit</em> yang lampau<a hidden class="anchor" aria-hidden="true" href="#membatalkan-commit-yang-lampau">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git revert <span class="o">[</span>saved hash<span class="o">]</span>
 </span></span></code></pre></div><div id='git-fu/revert'></div>
@@ -509,6 +512,7 @@ git commit --amend --no-edit
 
 <p>Perbedaan revert dengan <code>rebase -&gt; drop</code> atau <code>reset --hard</code>, revert membentuk commit baru. Jadi nanti kamu bisa <em>revert</em> commit yang me-<em>revert</em> commit 🤣</p>
 <p>Jika ditengah proses rebase ingin membatalkan, gunakan <code>git rebase --abort</code></p>
+<hr>
 <h2 id="menyimpan-state">Menyimpan state<a hidden class="anchor" aria-hidden="true" href="#menyimpan-state">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git stash save <span class="s2">&#34;stash name&#34;</span>
 </span></span></code></pre></div><p>Mirip ketika bermain game dan menyimpan <em>save</em>, pada saat ngoding kita dapat menyimpan <em>state</em> saat ini dan men-<em>load</em> kemudian</p>
@@ -547,6 +551,7 @@ git commit --amend --no-edit
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git stash apply
 </span></span></code></pre></div>Maka akan <em>load stash</em> trakhir. Perintah ini sama dengan <code>git stash apply stash@{0}</code></li>
 </ol>
+<hr>
 <h2 id="mengembalikan-keadaan-file-pada-keadaan-sebelumnya">Mengembalikan keadaan file pada keadaan sebelumnya<a hidden class="anchor" aria-hidden="true" href="#mengembalikan-keadaan-file-pada-keadaan-sebelumnya">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git checkout <span class="o">[</span>hash<span class="o">]</span> -- path/to/file
 </span></span></code></pre></div><p>Membantu jika ingin mengembalikan kondisi file sesuai pada commit tertentu</p>
@@ -571,6 +576,7 @@ git commit --amend --no-edit
      });
 </script>
 
+<hr>
 <h2 id="push-paksa-force-push">Push Paksa (Force Push)<a hidden class="anchor" aria-hidden="true" href="#push-paksa-force-push">#</a></h2>
 <p><strong>Penjelasan kali ini akan lebih panjang, karena merupakan tindakan yang berbahaya!</strong></p>
 <p>Force push (<code>git push --force</code>) adalah tindakan untuk memaksa mengirimkan perubahan dari repository lokal ke repository remote, menggantikan riwayat commit yang ada di remote. Ini berguna ketika Anda perlu memperbarui riwayat commit di remote setelah melakukan perubahan seperti <code>rebase</code> atau <code>amend</code>.</p>

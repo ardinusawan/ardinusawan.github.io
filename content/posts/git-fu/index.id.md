@@ -38,7 +38,7 @@ a3d5b8e HEAD@{1}: commit: Menambahkan file README
 ```sh
 git reset --hard a3d5b8e
 ```
-----
+
 Untuk memulihkan, kamu dapat menggunakan 
 ```sh
 git reset HEAD@{index}
@@ -48,7 +48,7 @@ atau
 git reset --hard HEAD@{index}
 ```
 
-Apa perbedaannya?
+**Apa perbedaannya?**
 
 ### `git reset --hard HEAD@{1}`
 
@@ -69,6 +69,8 @@ git reset HEAD@{1}
 
 `git reset`: Mengembalikan commit yang ditentukan hanya untuk staging area, tidak mengubah working directory.
 
+----
+
 ## Memperbaiki commit terakhir
 ```
 git add . # Atau menambahkan file individu
@@ -83,6 +85,8 @@ Merubah tanpa edit? Tapi barusan kita mengedit isi commit sebelumnnya?
 
 *ammend* ini adalah untuk commit message, bukan isinya. Masih belum paham?
 
+----
+
 ## Memperbaiki pesan commit terakhir
 ```
 git commit --amend
@@ -90,6 +94,8 @@ git commit --amend
 {{< asciinema key="git-fu/amend" >}}
 
 Disini tanpa menggunakan  `--no-edit`, jadi hanya mengganti pesan *commit*nya saja. Sudah jelas kan?
+
+----
 
 ## Tanpa sengaja membuat commit di branch master, harusnya di branch baru
 Pernah ga sih lupa checkout ke branch tetapi langsung ngoding di branch master(atau branch lainnya)? 🤣
@@ -142,6 +148,8 @@ Harus di force push 😢. Maka dari itu, *branch* master/main harus di *guard* a
 
 Untuk cara force push akan ada penjelasannya tersendiri.
 
+----
+
 ## Membatalkan *commit* yang lampau
 
 ```sh
@@ -152,6 +160,8 @@ git revert [saved hash]
 Perbedaan revert dengan `rebase -> drop` atau `reset --hard`, revert membentuk commit baru. Jadi nanti kamu bisa *revert* commit yang me-*revert* commit 🤣
 
 Jika ditengah proses rebase ingin membatalkan, gunakan `git rebase --abort`
+
+----
 
 ## Menyimpan state
 
@@ -185,6 +195,8 @@ Mirip ketika bermain game dan menyimpan *save*, pada saat ngoding kita dapat men
     ```
     Maka akan *load stash* trakhir. Perintah ini sama dengan `git stash apply stash@{0}`
 
+----
+
 ## Mengembalikan keadaan file pada keadaan sebelumnya
 
 ```sh
@@ -194,6 +206,8 @@ git checkout [hash] -- path/to/file
 Membantu jika ingin mengembalikan kondisi file sesuai pada commit tertentu
 
 {{< asciinema key="git-fu/checkout-commited" >}}
+
+----
 
 ## Push Paksa (Force Push)
 **Penjelasan kali ini akan lebih panjang, karena merupakan tindakan yang berbahaya!**
