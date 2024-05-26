@@ -39,6 +39,9 @@
     <loc>http://localhost:1313/posts/neovim-ftw/</loc>
     <lastmod>2024-05-18T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/postgresql/</loc>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/posts/</loc>
     <lastmod>2024-05-18T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -55,7 +58,13 @@
     <loc>http://localhost:1313/tags/rbac/</loc>
     <lastmod>2024-05-18T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/sql/</loc>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/tuning-up-postgresql/</loc>
     <lastmod>2024-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/user-management/</loc>

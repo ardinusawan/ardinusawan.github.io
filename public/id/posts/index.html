@@ -8,7 +8,7 @@
 <title>Posts | I Dewa Putu Ardi Nusawan</title>
 <meta name="keywords" content="">
 <meta name="description" content="Posts - I Dewa Putu Ardi Nusawan">
-<meta name="author" content="Theme PaperMod">
+<meta name="author" content="I Dewa Putu Ardi Nusawan">
 <link rel="canonical" href="http://localhost:1313/id/posts/">
 <meta name="google-site-verification" content="G-NYFF648CV5">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -63,7 +63,7 @@
   
 
 <meta property="og:title" content="Posts" />
-<meta property="og:description" content="Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod" />
+<meta property="og:description" content="I Dewa Putu Ardi Nusawan Blog" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://localhost:1313/id/posts/" />
 <meta property="og:image" content="http://localhost:1313/images/papermod-cover.png" />
@@ -72,7 +72,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="http://localhost:1313/images/papermod-cover.png" />
 <meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"/>
+<meta name="twitter:description" content="I Dewa Putu Ardi Nusawan Blog"/>
 
 
 <script type="application/ld+json">
@@ -172,6 +172,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Git-fu
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Permasalahan Mengulang kembali apapun yang sudah dilakukan Bayangkan kamu telah melakukan beberapa commit, tetapi kemudian kamu melakukan git reset --hard HEAD~2 dan kehilangan dua commit terakhir. Kamu dapat memulihkannya dengan cara berikut:
+Cek log reflog git reflog Outputnya mungkin menunjukkan: c4f2a27 (HEAD -&gt; main) HEAD@{0}: reset: moving to HEAD~2 a3d5b8e HEAD@{1}: commit: Menambahkan file README Kamu ingin mengembalikan commit a3d5b8e: git reset --hard a3d5b8e Untuk memulihkan, kamu dapat menggunakan
+git reset HEAD@{index} atau...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-05-26 00:00:00 +0000 UTC'>Mei 26, 2024</span>&nbsp;·&nbsp;5 menit&nbsp;·&nbsp;I Dewa Putu Ardi Nusawan</footer>
+  <a class="entry-link" aria-label="post link to Git-fu" href="http://localhost:1313/id/posts/git-fu/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Git-details
       <span class="entry-hint" title="Draft">
         <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
@@ -191,26 +205,6 @@ Buat folder kosong mkdir test Masuk ke folder, lalu jalankan perintah cd test gi
   </div>
   <footer class="entry-footer"><span title='2024-05-19 00:00:00 +0000 UTC'>Mei 19, 2024</span>&nbsp;·&nbsp;3 menit&nbsp;·&nbsp;I Dewa Putu Ardi Nusawan</footer>
   <a class="entry-link" aria-label="post link to Git-details" href="http://localhost:1313/id/posts/git-details/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Git-fu
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Permasalahan Mengulang kembali apapun yang sudah dilakukan git reflog Git reflog (reference log) menyimpan catatan dari semua perubahan referensi di repository, termasuk HEAD, branches, dan remotes. Reflog memungkinkan untuk melihat riwayat perubahan dan memulihkan commit yang mungkin tidak lagi terhubung ke referensi yang lebih jelas.
-Contoh
-ac88bcf (HEAD -&gt; main, origin/main, staging) HEAD@{0}: checkout: moving from staging to main ac88bcf (HEAD -&gt; main, origin/main, staging) HEAD@{1}: checkout: moving from main to staging ac88bcf (HEAD -&gt; main, origin/main, staging) HEAD@{2}: pull --rebase: Fast-forward 36ef154 HEAD@{3}: checkout: moving from dashboard to main 156ad31 (origin/dashboard, dashboard) HEAD@{4}: commit: fix build b4c0e21 HEAD@{5}: reset: moving to HEAD Jika ingin balik ke keadaan sebelum pull --rebase, maka cari head sebelumnya...</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-05-19 00:00:00 +0000 UTC'>Mei 19, 2024</span>&nbsp;·&nbsp;3 menit&nbsp;·&nbsp;I Dewa Putu Ardi Nusawan</footer>
-  <a class="entry-link" aria-label="post link to Git-fu" href="http://localhost:1313/id/posts/git-fu/"></a>
 </article>
     </main>
     
