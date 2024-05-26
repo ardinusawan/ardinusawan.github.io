@@ -1,7 +1,7 @@
 ---
 author: ["I Dewa Putu Ardi Nusawan"]
 title: "Git-fu"
-date: 2024-05-19
+date: 2024-05-26
 description: "Belajar git untuk mempermudah hidupmu"
 tags: ["git"]
 thumbnail:
