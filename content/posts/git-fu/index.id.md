@@ -92,8 +92,8 @@ git commit --amend
 
 Disini tanpa menggunakan  `--no-edit`, jadi hanya mengganti pesan *commit*nya saja. Sudah jelas kan?
 
-## Tanpa sengaja membuat commit di branch yang salah
-Pernah ga sih lupa checkout ke branch tetapi langsung ngoding di branch master? 🤣
+## Tanpa sengaja membuat commit di branch master, harusnya di branch baru
+Pernah ga sih lupa checkout ke branch tetapi langsung ngoding di branch master(atau branch lainnya)? 🤣
 
 Tenang, caranya gampang banget.
 ### git reset HEAD~ --hard
@@ -125,11 +125,42 @@ Langkah yang berbeda hanya pada *step* ke 2
 
 {{< asciinema key="git-fu/drop-many-commit-wrong-branch" >}}
 
+### git cherry-pick commit-hash
+
+Ada cara yang lebih simple dan lebih sering saya gunakan, `cherry-pick`
+```sh
+git cherry-pick commit-hash
+```
+{{< asciinema key="git-fu/cherry-pick" >}}
+
+Setelah melakukan *cherry pick*, dapat checkout kembali ke branch yang salah dan melalukan `git reset HEAD~ --hard` atau `git rebase -i HEAD~n`
+
+### Catatan
+
 Jika commit pada master sudah terlanjur di push, bagaimana?
 
 Harus di force push 😢. Maka dari itu, *branch* master/main harus di *guard* agar tidak bisa commit langsung ya, hanya dapat di merge dari branch lain.
 
 Untuk cara force push akan ada penjelasannya tersendiri.
 
-# Sumber Referensi
+## Membatalkan *commit* yang lampau
+
+```sh
+git revert [saved hash]
+```
+{{< asciinema key="git-fu/revert" >}}
+
+Perbedaan revert dengan `rebase -> drop` atau `reset --hard`, revert membentuk commit baru. Jadi nanti kamu bisa *revert* commit yang me-*revert* commit 🤣
+
+Jika ditengah proses rebase ingin membatalkan, gunakan `git rebase --abort`
+
+## Stash
+
+
+## Sumber Referensi
 - ["Oh Shit, Git!?!"](https://ohshitgit.com/)
+
+## Peralatan
+- Editor [neovim](https://github.com/neovim/neovim)
+- Terminal direkam dengan [asciinema](https://github.com/asciinema/asciinema)
+- Pemutar menggunakan [asciinema-player](https://github.com/asciinema/asciinema-player)
