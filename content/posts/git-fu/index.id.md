@@ -156,6 +156,37 @@ Jika ditengah proses rebase ingin membatalkan, gunakan `git rebase --abort`
 
 ## Stash
 
+```sh
+git stash save "stash name"
+```
+
+Mirip ketika bermain game dan menyimpan *save*, pada saat ngoding kita dapat menyimpan *state* saat ini dan men-*load* kemudian
+
+{{< asciinema key="git-fu/stash" >}}
+
+1. *stash* state
+    ```sh
+    git stash save "nama custom" # nama stash opsional
+    ```
+    Jika tanpa nama *custom*
+        ```sh
+        git stash save
+        ```
+1. List stash
+    ```sh
+    git stash list
+    ```
+1. *Load* state
+    ```sh
+    git stash apply stash@{n} # n: posisi stash yang didapatkan pada stash list
+    ```
+    Jika tanpa `stash@{n}`
+    ```sh
+    git stash apply
+    ```
+    Maka akan *load stash* trakhir. Perintah ini sama dengan `git stash apply stash@{0}`
+
+## reflog
 
 ## Sumber Referensi
 - ["Oh Shit, Git!?!"](https://ohshitgit.com/)
