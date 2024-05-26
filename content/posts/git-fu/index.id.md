@@ -51,14 +51,14 @@ git reset --hard HEAD@{index}
 ```
 Apa perbedaannya?
 
-### Menggunakan `git reset --hard HEAD@{1}`
+### `git reset --hard HEAD@{1}`
 
 Jika kamu ingin benar-benar mengembalikan repository ke keadaan persis seperti commit HEAD@{1} dan membuang semua perubahan yang belum dikomit atau distage:
 ```sh
 git reset --hard HEAD@{1}
 ```
 
-### Menggunakan `git reset HEAD@{1}`
+### `git reset HEAD@{1}`
 
 Jika kamu ingin mengembalikan staging area ke commit HEAD@{1} tetapi tetap menjaga perubahan yang ada di working directory (misalnya untuk memeriksa atau menyimpan sementara perubahan yang ada):
 ```sh
@@ -73,10 +73,63 @@ git reset HEAD@{1}
 ## Memperbaiki commit terakhir
 ```
 git add . # Atau menambahkan file individu
-git commit --ammend --no-edit
+git commit --amend --no-edit
 ```
-{{< asciinema key="git-fu/2-ammend-no-edit" >}}
+{{< asciinema key="git-fu/amend-no-edit" >}}
 
+- `--amend` artinya merubah.
+- `--no-edit` artinya tanpa edit
+
+Merubah tanpa edit? Tapi barusan kita mengedit isi commit sebelumnnya?
+
+*ammend* ini adalah untuk commit message, bukan isinya. Masih belum paham?
+
+## Memperbaiki pesan commit terakhir
+```
+git commit --amend
+```
+{{< asciinema key="git-fu/amend" >}}
+
+Disini tanpa menggunakan  `--no-edit`, jadi hanya mengganti pesan *commit*nya saja. Sudah jelas kan?
+
+## Tanpa sengaja membuat commit di branch yang salah
+Pernah ga sih lupa checkout ke branch tetapi langsung ngoding di branch master? 🤣
+
+Tenang, caranya gampang banget.
+### git reset HEAD~ --hard
+1. Pada branch master, buat dulu branch baru
+    ```sh
+    git branch nama-branch-baru
+    ```
+1. Reset master ke commit sebelumnya
+    ```sh
+    git reset HEAD~ --hard
+    ```
+1. Checkout ke branch yang benar
+    ```sh
+    git branch nama-branch-baru
+    
+    ```
+{{< asciinema key="git-fu/drop-one-commit-wrong-branch" >}}
+
+### git rebase -i HEAD~n
+Cara yang tadi berlaku jika hanya ada 1 commit yang di reset. Tapi kalo terlanjur banyak commit di master, gimana dong?
+
+Langkah yang berbeda hanya pada *step* ke 2
+
+1. Drop commit yang ingin dihapus
+    ```sh
+    git rebase -i HEAD~n # n adalah perkiraan berapa commit yang ingin di hapus
+    ```
+1. Pada editor, cari commit mana yang ingin di hapus. Ubah `pick` ke `drop`. Lalu simpan.
+
+{{< asciinema key="git-fu/drop-many-commit-wrong-branch" >}}
+
+Jika commit pada master sudah terlanjur di push, bagaimana?
+
+Harus di force push 😢. Maka dari itu, *branch* master/main harus di *guard* agar tidak bisa commit langsung ya, hanya dapat di merge dari branch lain.
+
+Untuk cara force push akan ada penjelasannya tersendiri.
 
 # Sumber Referensi
 - ["Oh Shit, Git!?!"](https://ohshitgit.com/)
