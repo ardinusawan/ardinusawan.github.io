@@ -20,35 +20,34 @@ asciinema: true
 # Permasalahan
 
 ## Mengulang kembali apapun yang sudah dilakukan
+
+Bayangkan Anda telah melakukan beberapa commit, tetapi kemudian Anda melakukan `git reset --hard HEAD~2` dan kehilangan dua commit terakhir. Anda dapat memulihkannya dengan cara berikut:
+
+{{< asciinema key="git-fu/reflog" >}}
+
+1. Cek log reflog
 ```sh
 git reflog
 ```
-
-Git reflog (reference log) menyimpan catatan dari semua perubahan referensi di repository, termasuk HEAD, branches, dan remotes. Reflog memungkinkan untuk melihat riwayat perubahan dan memulihkan commit yang mungkin tidak lagi terhubung ke referensi yang lebih jelas.
-
-Contoh
+1. Outputnya mungkin menunjukkan:
 ```sh
-ac88bcf (HEAD -> main, origin/main, staging) HEAD@{0}: checkout: moving from staging to main
-ac88bcf (HEAD -> main, origin/main, staging) HEAD@{1}: checkout: moving from main to staging
-ac88bcf (HEAD -> main, origin/main, staging) HEAD@{2}: pull --rebase: Fast-forward
-36ef154 HEAD@{3}: checkout: moving from dashboard to main
-156ad31 (origin/dashboard, dashboard) HEAD@{4}: commit: fix build
-b4c0e21 HEAD@{5}: reset: moving to HEAD
+c4f2a27 (HEAD -> main) HEAD@{0}: reset: moving to HEAD~2
+a3d5b8e HEAD@{1}: commit: Menambahkan file README
 ```
-
-Jika ingin balik ke keadaan sebelum `pull --rebase`, maka cari head sebelumnya
+1. Anda ingin mengembalikan commit a3d5b8e:
 ```sh
-git reset HEAD@{3}
+git reset --hard a3d5b8e
 ```
-
-Kamu dapat menggunakan 
-```
+----
+Untuk memulihkan, kamu dapat menggunakan 
+```sh
 git reset HEAD@{index}
 ```
 atau
-```
+```sh
 git reset --hard HEAD@{index}
 ```
+
 Apa perbedaannya?
 
 ### `git reset --hard HEAD@{1}`
@@ -195,27 +194,6 @@ git checkout [hash] -- path/to/file
 Membantu jika ingin mengembalikan kondisi file sesuai pada commit tertentu
 
 {{< asciinema key="git-fu/checkout-commited" >}}
-
-## Mesin waktu
-
-Bayangkan Anda telah melakukan beberapa commit, tetapi kemudian Anda melakukan `git reset --hard HEAD~2` dan kehilangan dua commit terakhir. Anda dapat memulihkannya dengan cara berikut:
-
-1. Cek log reflog:
-```sh
-git reflog
-```
-1. Outputnya mungkin menunjukkan:
-```sh
-c4f2a27 (HEAD -> main) HEAD@{0}: reset: moving to HEAD~2
-a3d5b8e HEAD@{1}: commit: Menambahkan file README
-```
-1. Anda ingin mengembalikan commit a3d5b8e:
-```sh
-git reset --hard a3d5b8e
-```
-Sekarang, commit Anda telah dipulihkan.
-
-{{< asciinema key="git-fu/reflog" >}}
 
 ## Push Paksa (Force Push)
 **Penjelasan kali ini akan lebih panjang, karena merupakan tindakan yang berbahaya!**
