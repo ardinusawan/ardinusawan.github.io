@@ -272,10 +272,10 @@ Jika tidak ada orang lain yang melakukan push ke branch `main` di remote, peruba
 
 Dengan menggunakan `--force-with-lease`, Anda mendapatkan perlindungan tambahan dibandingkan `--force`, sehingga lebih aman untuk digunakan dalam lingkungan kolaboratif. Selalu berhati-hati saat menggunakan force push untuk menghindari kehilangan riwayat commit yang penting.
 
-## Sumber Referensi
+# Sumber Referensi
 - ["Oh Shit, Git!?!"](https://ohshitgit.com/)
 
-## Peralatan
+# Peralatan
 - Editor [neovim](https://github.com/neovim/neovim)
 - Terminal direkam dengan [asciinema](https://github.com/asciinema/asciinema)
 - Pemutar menggunakan [asciinema-player](https://github.com/asciinema/asciinema-player)
