@@ -217,6 +217,61 @@ Sekarang, commit Anda telah dipulihkan.
 
 {{< asciinema key="git-fu/reflog" >}}
 
+## Push Paksa (Force Push)
+**Penjelasan kali ini akan lebih panjang, karena merupakan tindakan yang berbahaya!**
+
+Force push (`git push --force`) adalah tindakan untuk memaksa mengirimkan perubahan dari repository lokal ke repository remote, menggantikan riwayat commit yang ada di remote. Ini berguna ketika Anda perlu memperbarui riwayat commit di remote setelah melakukan perubahan seperti `rebase` atau `amend`.
+
+### Mengapa Force Push Berbahaya?
+
+Force push bisa berbahaya karena:
+- Menghapus riwayat commit di remote yang mungkin penting.
+- Membuat commit rekan tim Anda hilang jika mereka juga bekerja pada branch yang sama.
+- Menyebabkan konflik jika orang lain telah menggabungkan (merge) commit yang Anda ganti.
+
+### `--force`
+
+Misalkan Anda telah mengubah riwayat commit di branch `main` dengan melakukan rebase atau mengedit commit, dan Anda ingin memaksa mengupdate remote repository.
+
+1. Buat beberapa perubahan dan lakukan commit:
+    ```bash
+    git commit --amend -m "Memperbaiki pesan commit"
+    ```
+1. Push perubahan dengan force:
+    ```bash
+    git push --force origin main
+    ```
+
+Dengan menggunakan `--force`, Anda menggantikan riwayat commit yang ada di remote dengan riwayat commit baru dari repository lokal Anda.
+
+### `--force-with-lease`
+
+`--force-with-lease` adalah opsi yang lebih aman daripada `--force` karena melakukan pemeriksaan tambahan sebelum melakukan push. Opsi ini memastikan bahwa Anda hanya akan memaksa push jika tidak ada orang lain yang telah melakukan push ke remote sejak Anda terakhir kali menarik (pull) perubahan.
+
+#### Keuntungan Menggunakan `--force-with-lease`
+
+- Mencegah Anda secara tidak sengaja menimpa commit orang lain.
+- Memberikan peringatan jika terdapat perubahan di remote yang belum Anda tarik (pull).
+
+#### Contoh Penggunaan `--force-with-lease`
+
+Misalkan Anda melakukan perubahan di branch `main` dan ingin memastikan tidak ada yang telah melakukan push ke remote sejak terakhir kali Anda menarik perubahan.
+
+1. Buat beberapa perubahan dan lakukan commit:
+    ```bash
+    git commit --amend -m "Memperbaiki pesan commit"
+    ```
+1. Push perubahan dengan `--force-with-lease`:
+    ```bash
+    git push --force-with-lease origin main
+    ```
+
+Jika tidak ada orang lain yang melakukan push ke branch `main` di remote, perubahan Anda akan diterima. Namun, jika ada perubahan di remote yang belum Anda tarik, Git akan memberikan peringatan dan menghentikan push tersebut, mencegah potensi konflik.
+
+### Kesimpulan
+
+Dengan menggunakan `--force-with-lease`, Anda mendapatkan perlindungan tambahan dibandingkan `--force`, sehingga lebih aman untuk digunakan dalam lingkungan kolaboratif. Selalu berhati-hati saat menggunakan force push untuk menghindari kehilangan riwayat commit yang penting.
+
 ## Sumber Referensi
 - ["Oh Shit, Git!?!"](https://ohshitgit.com/)
 
