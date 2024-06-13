@@ -9,15 +9,15 @@
       <url>http://localhost:1313/images/papermod-cover.png</url>
       <link>http://localhost:1313/images/papermod-cover.png</link>
     </image>
-    <generator>Hugo -- 0.126.1</generator>
+    <generator>Hugo -- 0.127.0</generator>
     <language>en</language>
     <lastBuildDate>Sat, 18 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/vim/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Neovim ftw</title>
-      <link>http://localhost:1313/posts/neovim-ftw/</link>
+      <title>Life is short, use (neo)vim</title>
+      <link>http://localhost:1313/posts/life-is-short-use-vim/</link>
       <pubDate>Sat, 18 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/neovim-ftw/</guid>
+      <guid>http://localhost:1313/posts/life-is-short-use-vim/</guid>
       <description>What is best editor and why neovim?</description>
     </item>
   </channel>

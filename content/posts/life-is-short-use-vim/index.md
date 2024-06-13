@@ -1,6 +1,6 @@
 ---
 author: ["I Dewa Putu Ardi Nusawan"]
-title: "Neovim ftw"
+title: "Life is short, use (neo)vim"
 date: 2024-05-18
 description: "What is best editor and why neovim?"
 tags: ["vim", "neovim"]
