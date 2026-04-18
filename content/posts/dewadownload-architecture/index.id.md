@@ -1,7 +1,7 @@
 ---
 author: ["I Dewa Putu Ardi Nusawan"]
 title: "Tanpa Cloud, Tanpa Biaya: Bagaimana Saya Membangun Kekaisaran Pengunduh Video 3 Node"
-date: 2024-04-19
+date: 2026-04-19
 description: "Dari git push ke CDN global: Men-deploy pengunduh video multi-node dengan 3 subdomain, Cloudflare tunnel, dan tanpa biaya cloud"
 tags: ["deployment", "cloudflare", "docker", "git", "architecture", "video-downloader"]
 thumbnail:
