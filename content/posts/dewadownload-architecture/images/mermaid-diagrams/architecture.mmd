@@ -1,0 +1,99 @@
+graph TB
+    subgraph "User Layer"
+        User[👤 User Browser<br/>Mobile/Desktop]
+    end
+    
+    subgraph "CDN Layer"
+        CDN[🌐 Cloudflare CDN<br/>Global Edge Network]
+    end
+    
+    subgraph "Tunnel Layer"
+        Tunnel1[🔒 Cloudflare Tunnel 1<br/>api.dewadownload.com]
+        Tunnel2[🔒 Cloudflare Tunnel 2<br/>api2.dewadownload.com]
+        Tunnel3[🔒 Cloudflare Tunnel 3<br/>api3.dewadownload.com]
+    end
+    
+    subgraph "Proxy Layer"
+        Nginx1[⚡ Nginx 1<br/>Load Balancer]
+        Nginx2[⚡ Nginx 2<br/>Load Balancer]
+        Nginx3[⚡ Nginx 3<br/>Load Balancer]
+    end
+    
+    subgraph "Application Layer"
+        Backend1[🚀 Fastify Backend 1<br/>2 CPU, 6GB RAM]
+        Backend2[🚀 Fastify Backend 2<br/>2 CPU, 2GB RAM]
+        Backend3[🚀 Fastify Backend 3<br/>2 CPU, 2GB RAM]
+    end
+    
+    subgraph "Cache Layer"
+        Redis1[💾 Redis Cache 1<br/>4GB]
+        Redis2[💾 Redis Cache 2<br/>4GB]
+        Redis3[💾 Redis Cache 3<br/>4GB]
+    end
+    
+    subgraph "Processing Layer"
+        YTDLP1[🎬 yt-dlp + FFmpeg 1]
+        YTDLP2[🎬 yt-dlp + FFmpeg 2]
+        YTDLP3[🎬 yt-dlp + FFmpeg 3]
+    end
+    
+    subgraph "External Services"
+        YouTube[📺 YouTube API]
+        TikTok[🎵 TikTok API]
+        Twitter[🐦 X/Twitter API]
+        Instagram[📸 Instagram API]
+    end
+    
+    User -->|HTTPS Request| CDN
+    CDN -->|Route| Tunnel1
+    CDN -->|Route| Tunnel2
+    CDN -->|Route| Tunnel3
+    
+    Tunnel1 -->|Encrypted| Nginx1
+    Tunnel2 -->|Encrypted| Nginx2
+    Tunnel3 -->|Encrypted| Nginx3
+    
+    Nginx1 -->|Proxy| Backend1
+    Nginx2 -->|Proxy| Backend2
+    Nginx3 -->|Proxy| Backend3
+    
+    Backend1 -->|Cache| Redis1
+    Backend2 -->|Cache| Redis2
+    Backend3 -->|Cache| Redis3
+    
+    Backend1 -->|Download| YTDLP1
+    Backend2 -->|Download| YTDLP2
+    Backend3 -->|Download| YTDLP3
+    
+    YTDLP1 -->|Fetch Metadata| YouTube
+    YTDLP1 -->|Fetch Metadata| TikTok
+    YTDLP1 -->|Fetch Metadata| Twitter
+    YTDLP1 -->|Fetch Metadata| Instagram
+    
+    YTDLP2 -->|Fetch Metadata| YouTube
+    YTDLP2 -->|Fetch Metadata| TikTok
+    YTDLP2 -->|Fetch Metadata| Twitter
+    YTDLP2 -->|Fetch Metadata| Instagram
+    
+    YTDLP3 -->|Fetch Metadata| YouTube
+    YTDLP3 -->|Fetch Metadata| TikTok
+    YTDLP3 -->|Fetch Metadata| Twitter
+    YTDLP3 -->|Fetch Metadata| Instagram
+    
+    style User fill:#e1f5ff
+    style CDN fill:#fff4e1
+    style Tunnel1 fill:#ffe1e1
+    style Tunnel2 fill:#ffe1e1
+    style Tunnel3 fill:#ffe1e1
+    style Nginx1 fill:#e1ffe1
+    style Nginx2 fill:#e1ffe1
+    style Nginx3 fill:#e1ffe1
+    style Backend1 fill:#f0e1ff
+    style Backend2 fill:#f0e1ff
+    style Backend3 fill:#f0e1ff
+    style Redis1 fill:#ffe1f0
+    style Redis2 fill:#ffe1f0
+    style Redis3 fill:#ffe1f0
+    style YTDLP1 fill:#e1f0ff
+    style YTDLP2 fill:#e1f0ff
+    style YTDLP3 fill:#e1f0ff

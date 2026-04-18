@@ -1,0 +1,56 @@
+graph LR
+    subgraph "Docker Network: dewadownload-net<br/>172.20.0.0/16"
+        subgraph "Container: dewadownload_cloudflared"
+            Cloudflared[🔒 cloudflared<br/>Port: 2000<br/>Memory: 256MB]
+        end
+        
+        subgraph "Container: dewadownload_nginx"
+            Nginx[⚡ nginx<br/>Port: 80<br/>Memory: 512MB<br/>CPU: 1 core]
+        end
+        
+        subgraph "Container: dewadownload"
+            Backend[🚀 dewadownload<br/>Port: 3000<br/>Memory: 6GB<br/>CPU: 2 cores]
+        end
+        
+        subgraph "Container: dewadownload_redis"
+            Redis[💾 redis<br/>Port: 6379<br/>Memory: 4GB]
+        end
+    end
+    
+    subgraph "Host Volumes"
+        Vols1[/cloudflared/]
+        Vols2[/nginx/]
+        Vols3[/www/]
+        Vols4[/var/log/nginx/]
+    end
+    
+    subgraph "External"
+        Cloudflare[🌐 Cloudflare Edge]
+        Internet[🌍 Internet]
+    end
+    
+    Cloudflare -->|Encrypted Tunnel| Cloudflared
+    Cloudflared -->|HTTP| Nginx
+    Nginx -->|Proxy Pass| Backend
+    Backend -->|Redis Client| Redis
+    
+    Cloudflared -->|Mount| Vols1
+    Nginx -->|Mount| Vols2
+    Nginx -->|Mount| Vols3
+    Nginx -->|Mount| Vols4
+    
+    Internet -->|HTTPS| Cloudflare
+    
+    Cloudflared -.->|Health Check| Nginx
+    Nginx -.->|Health Check| Backend
+    
+    style Cloudflared fill:#ffe1e1
+    style Nginx fill:#e1ffe1
+    style Backend fill:#f0e1ff
+    style Redis fill:#ffe1f0
+    style Cloudflare fill:#fff4e1
+    style Internet fill:#e1f5ff
+    style Vols1 fill:#f5f5f5
+    style Vols2 fill:#f5f5f5
+    style Vols3 fill:#f5f5f5
+    style Vols4 fill:#f5f5f5

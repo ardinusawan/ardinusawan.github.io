@@ -1,0 +1,59 @@
+graph TB
+    subgraph "Performance Comparison"
+        direction TB
+        
+        subgraph "Info Endpoint TTFB"
+            Before1[⏱️ Before: 9.4s]
+            After1[⚡ After: 1.6s<br/>82% Faster]
+            Before1 --> After1
+        end
+        
+        subgraph "Download TTFB"
+            Before2[⏱️ Before: 4.6s]
+            After2[⚡ After: 1.8s<br/>61% Faster]
+            Before2 --> After2
+        end
+        
+        subgraph "Download Speed"
+            Before3[🐢 Before: 185 KB/s]
+            After3[🚀 After: 800 KB/s<br/>4.3x Faster]
+            Before3 --> After3
+        end
+        
+        subgraph "Concurrent Connections"
+            Before4[🔌 Before: 1,024]
+            After4[⚡ After: 8,192<br/>8x More]
+            Before4 --> After4
+        end
+    end
+    
+    subgraph "Optimizations Applied"
+        Opt1[✓ HTTP/2 Multiplexing]
+        Opt2[✓ Connection Pooling<br/>100 keep-alive]
+        Opt3[✓ Smart Transcoding]
+        Opt4[✓ Parallel Downloads<br/>4 concurrent]
+        Opt5[✓ Buffer Optimization<br/>2MB highWaterMark]
+        Opt6[✓ Resource Limits<br/>Prevent OOM]
+    end
+    
+    Opt1 -.->|Improves| After1
+    Opt2 -.->|Improves| After2
+    Opt3 -.->|Improves| After2
+    Opt4 -.->|Improves| After3
+    Opt5 -.->|Improves| After3
+    Opt6 -.->|Improves| After4
+    
+    style Before1 fill:#ffe1e1
+    style After1 fill:#e1ffe1
+    style Before2 fill:#ffe1e1
+    style After2 fill:#e1ffe1
+    style Before3 fill:#ffe1e1
+    style After3 fill:#e1ffe1
+    style Before4 fill:#ffe1e1
+    style After4 fill:#e1ffe1
+    style Opt1 fill:#f0e1ff
+    style Opt2 fill:#f0e1ff
+    style Opt3 fill:#f0e1ff
+    style Opt4 fill:#f0e1ff
+    style Opt5 fill:#f0e1ff
+    style Opt6 fill:#f0e1ff

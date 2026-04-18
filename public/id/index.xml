@@ -2,29 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>I Dewa Putu Ardi Nusawan</title>
-    <link>http://localhost:1313/id/</link>
+    <link>https://ardinusawan.xyz/id/</link>
     <description>Recent content on I Dewa Putu Ardi Nusawan</description>
     <image>
       <title>I Dewa Putu Ardi Nusawan</title>
-      <url>http://localhost:1313/images/papermod-cover.png</url>
-      <link>http://localhost:1313/images/papermod-cover.png</link>
+      <url>https://ardinusawan.xyz/images/papermod-cover.png</url>
+      <link>https://ardinusawan.xyz/images/papermod-cover.png</link>
     </image>
     <generator>Hugo</generator>
     <language>id</language>
     <lastBuildDate>Sun, 26 May 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/id/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ardinusawan.xyz/id/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git-fu</title>
-      <link>http://localhost:1313/id/posts/git-fu/</link>
+      <link>https://ardinusawan.xyz/id/posts/git-fu/</link>
       <pubDate>Sun, 26 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/id/posts/git-fu/</guid>
-      <description>Belajar git untuk mempermudah hidupmu</description>
-    </item>
-    <item>
-      <title>Git-details</title>
-      <link>http://localhost:1313/id/posts/git-details/</link>
-      <pubDate>Sun, 19 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/id/posts/git-details/</guid>
+      <guid>https://ardinusawan.xyz/id/posts/git-fu/</guid>
       <description>Belajar git untuk mempermudah hidupmu</description>
     </item>
   </channel>

@@ -1,0 +1,77 @@
+graph TB
+    subgraph "Backend Status Dashboard<br/>/status.html"
+        direction TB
+        
+        subgraph "Header"
+            Title[📊 DewaDownload Backend Status]
+            Refresh[🔄 Auto-refresh every 30s]
+            LastUpdate[Last updated: 2026-04-19 12:34:56]
+        end
+        
+        subgraph "Node 1: api.dewadownload.com"
+            Node1Status[✅ Healthy]
+            Node1Response[⏱️ Response Time: 1.2s]
+            Node1Rating[⭐ Performance: Excellent]
+            Node1Uptime[📈 Uptime: 99.9%]
+        end
+        
+        subgraph "Node 2: api2.dewadownload.com"
+            Node2Status[✅ Healthy]
+            Node2Response[⏱️ Response Time: 1.5s]
+            Node2Rating[⭐ Performance: Excellent]
+            Node2Uptime[📈 Uptime: 99.8%]
+        end
+        
+        subgraph "Node 3: api3.dewadownload.com"
+            Node3Status[⚠️ Degraded]
+            Node3Response[⏱️ Response Time: 3.8s]
+            Node3Rating[⚠️ Performance: Fair]
+            Node3Uptime[📉 Uptime: 95.2%]
+        end
+        
+        subgraph "Summary"
+            SummaryTotal[🔢 Total Nodes: 3]
+            SummaryHealthy[✅ Healthy: 2]
+            SummaryDegraded[⚠️ Degraded: 1]
+            SummaryDown[❌ Down: 0]
+        end
+        
+        subgraph "Actions"
+            ButtonRefresh[🔄 Refresh Now]
+            ButtonLogs[📋 View Logs]
+            ButtonAlerts[🔔 Set Alerts]
+        end
+    end
+    
+    Title --> Refresh
+    Refresh --> LastUpdate
+    LastUpdate --> Node1Status
+    Node1Status --> Node1Response
+    Node1Response --> Node1Rating
+    Node1Rating --> Node1Uptime
+    Node1Uptime --> Node2Status
+    Node2Status --> Node2Response
+    Node2Response --> Node2Rating
+    Node2Rating --> Node2Uptime
+    Node2Uptime --> Node3Status
+    Node3Status --> Node3Response
+    Node3Response --> Node3Rating
+    Node3Rating --> Node3Uptime
+    Node3Uptime --> SummaryTotal
+    SummaryTotal --> SummaryHealthy
+    SummaryHealthy --> SummaryDegraded
+    SummaryDegraded --> SummaryDown
+    SummaryDown --> ButtonRefresh
+    ButtonRefresh --> ButtonLogs
+    ButtonLogs --> ButtonAlerts
+    
+    style Title fill:#e1f5ff
+    style Refresh fill:#fff4e1
+    style LastUpdate fill:#f5f5f5
+    style Node1Status fill:#e1ffe1
+    style Node2Status fill:#e1ffe1
+    style Node3Status fill:#fff4e1
+    style SummaryTotal fill:#f0e1ff
+    style ButtonRefresh fill:#ffe1e1
+    style ButtonLogs fill:#ffe1e1
+    style ButtonAlerts fill:#ffe1e1

@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Series on I Dewa Putu Ardi Nusawan</title>
-    <link>http://localhost:1313/series/</link>
+    <link>https://ardinusawan.xyz/series/</link>
     <description>Recent content in Series on I Dewa Putu Ardi Nusawan</description>
     <image>
       <title>I Dewa Putu Ardi Nusawan</title>
-      <url>http://localhost:1313/images/papermod-cover.png</url>
-      <link>http://localhost:1313/images/papermod-cover.png</link>
+      <url>https://ardinusawan.xyz/images/papermod-cover.png</url>
+      <link>https://ardinusawan.xyz/images/papermod-cover.png</link>
     </image>
     <generator>Hugo</generator>
     <language>en-id</language>
-    <atom:link href="http://localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ardinusawan.xyz/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

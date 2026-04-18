@@ -2,106 +2,73 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/db-indexing-algorithm/</loc>
-    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+    <loc>https://ardinusawan.xyz/tags/cloud-exit/</loc>
+    <lastmod>2024-05-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/database/</loc>
-    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+    <loc>https://ardinusawan.xyz/posts/website-in-pi/</loc>
+    <lastmod>2024-05-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+    <loc>https://ardinusawan.xyz/</loc>
+    <lastmod>2024-05-15T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="id"
-                href="http://localhost:1313/id/"
+                href="https://ardinusawan.xyz/id/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-id"
-                href="http://localhost:1313/"
+                href="https://ardinusawan.xyz/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tags/postgresql/</loc>
-    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+    <loc>https://ardinusawan.xyz/posts/</loc>
+    <lastmod>2024-05-15T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="id"
-                href="http://localhost:1313/id/posts/"
+                href="https://ardinusawan.xyz/id/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-id"
-                href="http://localhost:1313/posts/"
+                href="https://ardinusawan.xyz/posts/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/elixir/</loc>
-    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/functional-programming/</loc>
-    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/intro-functional-programming/</loc>
-    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/life-is-short-use-vim/</loc>
-    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/neovim/</loc>
-    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/sql/</loc>
-    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/tuning-up-postgresql/</loc>
-    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/vim/</loc>
-    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/cloud-exit/</loc>
+    <loc>https://ardinusawan.xyz/tags/server/</loc>
     <lastmod>2024-05-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/website-in-pi/</loc>
+    <loc>https://ardinusawan.xyz/tags/</loc>
     <lastmod>2024-05-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/server/</loc>
+    <loc>https://ardinusawan.xyz/tags/website/</loc>
     <lastmod>2024-05-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/website/</loc>
-    <lastmod>2024-05-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/archives/</loc>
+    <loc>https://ardinusawan.xyz/archives/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="id"
-                href="http://localhost:1313/id/archives/"
+                href="https://ardinusawan.xyz/id/archives/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-id"
-                href="http://localhost:1313/archives/"
+                href="https://ardinusawan.xyz/archives/"
                 />
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://ardinusawan.xyz/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/search/</loc>
+    <loc>https://ardinusawan.xyz/search/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="id"
-                href="http://localhost:1313/id/search/"
+                href="https://ardinusawan.xyz/id/search/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-id"
-                href="http://localhost:1313/search/"
+                href="https://ardinusawan.xyz/search/"
                 />
   </url><url>
-    <loc>http://localhost:1313/series/</loc>
+    <loc>https://ardinusawan.xyz/series/</loc>
   </url>
 </urlset>

@@ -2,66 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/id/posts/git-fu/</loc>
+    <loc>https://ardinusawan.xyz/id/posts/git-fu/</loc>
     <lastmod>2024-05-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/id/</loc>
-    <lastmod>2024-05-26T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-id"
-                href="http://localhost:1313/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="id"
-                href="http://localhost:1313/id/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/id/posts/</loc>
+    <loc>https://ardinusawan.xyz/id/</loc>
     <lastmod>2024-05-26T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-id"
-                href="http://localhost:1313/posts/"
+                href="https://ardinusawan.xyz/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="id"
-                href="http://localhost:1313/id/posts/"
+                href="https://ardinusawan.xyz/id/"
                 />
   </url><url>
-    <loc>http://localhost:1313/id/posts/git-details/</loc>
-    <lastmod>2024-05-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/id/archives/</loc>
+    <loc>https://ardinusawan.xyz/id/posts/</loc>
+    <lastmod>2024-05-26T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-id"
-                href="http://localhost:1313/archives/"
+                href="https://ardinusawan.xyz/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="id"
-                href="http://localhost:1313/id/archives/"
+                href="https://ardinusawan.xyz/id/posts/"
                 />
   </url><url>
-    <loc>http://localhost:1313/id/idcategories/</loc>
-  </url><url>
-    <loc>http://localhost:1313/id/idseries/</loc>
-  </url><url>
-    <loc>http://localhost:1313/id/idtags/</loc>
-  </url><url>
-    <loc>http://localhost:1313/id/search/</loc>
+    <loc>https://ardinusawan.xyz/id/archives/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-id"
-                href="http://localhost:1313/search/"
+                href="https://ardinusawan.xyz/archives/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="id"
-                href="http://localhost:1313/id/search/"
+                href="https://ardinusawan.xyz/id/archives/"
+                />
+  </url><url>
+    <loc>https://ardinusawan.xyz/id/idcategories/</loc>
+  </url><url>
+    <loc>https://ardinusawan.xyz/id/idseries/</loc>
+  </url><url>
+    <loc>https://ardinusawan.xyz/id/idtags/</loc>
+  </url><url>
+    <loc>https://ardinusawan.xyz/id/search/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-id"
+                href="https://ardinusawan.xyz/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://ardinusawan.xyz/id/search/"
                 />
   </url>
 </urlset>
