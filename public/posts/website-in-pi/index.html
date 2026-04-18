@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,35 +40,49 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+            .toc {
+                background: var(--entry);
             }
         }
 
     </style>
 </noscript>
-<meta property="og:title" content="Host your website in raspberry/orange pi" />
-<meta property="og:description" content="Build up your own server using 🍇/🍊 with help of cloudflare" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/posts/website-in-pi/" />
-<meta property="og:image" content="http://localhost:1313/posts/website-in-pi/https:/assets.raspberrypi.com/static/50cf4345de1709e0fddf244e1b965b2e/3355f/raspberry-pi-5.webp" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-05-15T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-05-15T00:00:00+00:00" />
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="http://localhost:1313/posts/website-in-pi/https:/assets.raspberrypi.com/static/50cf4345de1709e0fddf244e1b965b2e/3355f/raspberry-pi-5.webp" />
-<meta name="twitter:title" content="Host your website in raspberry/orange pi"/>
-<meta name="twitter:description" content="Build up your own server using 🍇/🍊 with help of cloudflare"/>
+</script>
+<meta property="og:url" content="http://localhost:1313/posts/website-in-pi/">
+  <meta property="og:site_name" content="I Dewa Putu Ardi Nusawan">
+  <meta property="og:title" content="Host your website in raspberry/orange pi">
+  <meta property="og:description" content="Build up your own server using 🍇/🍊 with help of cloudflare">
+  <meta property="og:locale" content="en_id">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-05-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-05-15T00:00:00+00:00">
+    <meta property="article:tag" content="Server">
+    <meta property="article:tag" content="Website">
+    <meta property="article:tag" content="Cloud-Exit">
+    <meta property="og:image" content="http://localhost:1313/posts/website-in-pi/https:/assets.raspberrypi.com/static/50cf4345de1709e0fddf244e1b965b2e/3355f/raspberry-pi-5.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/posts/website-in-pi/https:/assets.raspberrypi.com/static/50cf4345de1709e0fddf244e1b965b2e/3355f/raspberry-pi-5.webp">
+  <meta name="twitter:title" content="Host your website in raspberry/orange pi">
+  <meta name="twitter:description" content="Build up your own server using 🍇/🍊 with help of cloudflare">
 
 
 <script type="application/ld+json">
@@ -125,31 +139,19 @@
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
         <div class="logo">
             <a href="http://localhost:1313/" accesskey="h" title="I Dewa Putu Ardi Nusawan (Alt + H)">I Dewa Putu Ardi Nusawan</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -162,16 +164,16 @@
                         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
-                </button>
-                <ul class="lang-switch"><li>|</li>
-                    <li>
-                        <a href="http://localhost:1313/id/" title="Indonesian"
-                            aria-label="Indonesian">Indonesian</a>
-                    </li>
-                </ul>
+                </button><span>|</span>
+                    <ul class="lang-menu">
+                        <li>
+                            <a href="http://localhost:1313/id/" title="Indonesian"
+                                aria-label="Indonesian">Indonesian</a>
+                        </li>
+                    </ul>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
@@ -194,55 +196,62 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    <a href='http://localhost:1313/'>Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="http://localhost:1313/posts/">Posts</a></nav>
     <h1 class="post-title entry-hint-parent">
       Host your website in raspberry/orange pi
     </h1>
     <div class="post-description">
       Build up your own server using 🍇/🍊 with help of cloudflare
     </div>
-    <div class="post-meta"><span title='2024-05-15 00:00:00 +0000 UTC'>May 15, 2024</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;I Dewa Putu Ardi Nusawan&nbsp;|&nbsp;<a href="https://github.com/ardinusawan/ardinusawan.github.io/tree/main/content/posts/website-in-pi/index.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2024-05-15 00:00:00 +0000 UTC'>May 15, 2024</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>I Dewa Putu Ardi Nusawan</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ardinusawan/ardinusawan.github.io/tree/main/content/posts/website-in-pi/index.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
 
 </div>
   </header> 
-<figure class="entry-cover"><img loading="eager" src="https://assets.raspberrypi.com/static/50cf4345de1709e0fddf244e1b965b2e/3355f/raspberry-pi-5.webp" alt="raspberry pi">
-        <p>raspberry pi</p>
-</figure><div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
+<figure class="entry-cover">
+        <img loading="eager" src="https://assets.raspberrypi.com/static/50cf4345de1709e0fddf244e1b965b2e/3355f/raspberry-pi-5.webp" alt="raspberry pi">
+        <figcaption>raspberry pi</figcaption>
+</figure><details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table of Contents</span>
+    </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
-                <li>
-                    <a href="#architecture" aria-label="Architecture">Architecture</a></li>
-                <li>
-                    <a href="#details" aria-label="Details">Details</a><ul>
-                        
-                <li>
-                    <a href="#dns" aria-label="DNS">DNS</a></li>
-                <li>
-                    <a href="#load-balancer" aria-label="Load Balancer">Load Balancer</a></li>
-                <li>
-                    <a href="#services" aria-label="Services">Services</a></li>
-                <li>
-                    <a href="#database" aria-label="Database">Database</a></li>
-                <li>
-                    <a href="#storage" aria-label="Storage">Storage</a></li></ul>
-                </li>
-                <li>
-                    <a href="#caveat" aria-label="Caveat">Caveat</a></li>
-                <li>
-                    <a href="#closing" aria-label="Closing">Closing</a>
-                </li>
-            </ul>
-        </div>
-    </details>
-</div>
+    <div class="inner"><ul>
+            <li>
+                <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+            <li>
+                <a href="#architecture" aria-label="Architecture">Architecture</a></li>
+            <li>
+                <a href="#details" aria-label="Details">Details</a><ul>
+                    
+            <li>
+                <a href="#dns" aria-label="DNS">DNS</a></li>
+            <li>
+                <a href="#load-balancer" aria-label="Load Balancer">Load Balancer</a></li>
+            <li>
+                <a href="#services" aria-label="Services">Services</a></li>
+            <li>
+                <a href="#database" aria-label="Database">Database</a></li>
+            <li>
+                <a href="#storage" aria-label="Storage">Storage</a></li></ul>
+            </li>
+            <li>
+                <a href="#caveat" aria-label="Caveat">Caveat</a></li>
+            <li>
+                <a href="#closing" aria-label="Closing">Closing</a>
+            </li>
+        </ul>
+    </div>
+</details>
 
-  <div class="post-content"><h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+  <div class="post-content md-content"><h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
 <p>If you hit <a href="https://tanggalnya.com">https://tanggalnya.com</a>, your request will be routed to one of this domain</p>
 <ul>
 <li><a href="https://www.tanggalnya.com">https://www.tanggalnya.com</a></li>
@@ -262,8 +271,7 @@
 <li>Raspberry Pi 4: www3 &amp; www4</li>
 </ul>
 <p>Here the diagrams:
-<img loading="lazy" src="images/tanggalnya.com_architecture.png" alt="tanggalnya.com architecture"  />
-</p>
+<img alt="tanggalnya.com architecture" loading="lazy" src="/posts/website-in-pi/images/tanggalnya.com_architecture.png"></p>
 <h1 id="details">Details<a hidden class="anchor" aria-hidden="true" href="#details">#</a></h1>
 <p>In 🚁 view, here the components:</p>
 <ol>
@@ -276,10 +284,8 @@
 <h2 id="dns">DNS<a hidden class="anchor" aria-hidden="true" href="#dns">#</a></h2>
 <p>Cloudflare is very powerfull DNS provider, here my A and CNAME record</p>
 <ul>
-<li><img loading="lazy" src="images/A_record.png" alt="A"  />
-</li>
-<li><img loading="lazy" src="images/CNAME_record.png" alt="CNAME"  />
-
+<li><img alt="A" loading="lazy" src="/posts/website-in-pi/images/A_record.png"></li>
+<li><img alt="CNAME" loading="lazy" src="/posts/website-in-pi/images/CNAME_record.png">
 As you can see, for A record it just goes to IPv4 address (Vultr Classic VM). For CNAME, it goes to <a href="https://github.com/cloudflare/cloudflared">cloudflared tunnel</a>. This tunnel will expose port 80 of my pi to outside world.</li>
 </ul>
 <p>Will keep my Vultr instance for a while until it stable (no complain from customer 😂)</p>
@@ -293,18 +299,15 @@ www1.tanggalnya.com.    678     IN      A       104.21.52.196
 </code></pre><h2 id="load-balancer">Load Balancer<a hidden class="anchor" aria-hidden="true" href="#load-balancer">#</a></h2>
 <p>I do use Cloudflare Worker for LB. <a href="https://workers.cloudflare.com/">Cloudflare Worker</a> is serverless function (just like AWS Lambda). Here the <a href="https://github.com/tanggalnya/load-balancer-worker/blob/main/src/proxy.ts">source code</a> for round-robin the request. I build simple load balancer with health check enabled. Do check the code for details 🤓</p>
 <p>Logs:
-<img loading="lazy" src="images/cloudflare-logs.png" alt="logs"  />
-</p>
+<img alt="logs" loading="lazy" src="/posts/website-in-pi/images/cloudflare-logs.png"></p>
 <h2 id="services">Services<a hidden class="anchor" aria-hidden="true" href="#services">#</a></h2>
 <p>Before hitting my service, ingress is being handled by cloudflared first. Here the folder architecture and config
-<img loading="lazy" src="images/raspy-infra.png" alt="raspy-infra"  />
-</p>
+<img alt="raspy-infra" loading="lazy" src="/posts/website-in-pi/images/raspy-infra.png"></p>
 <p>Cloudflared then route the request to nginx</p>
 <p>My service is consist of monorepo of Nginx + PHP 🐘 + JS (FE) + <a href="https://www.hasura.io">hasura.io</a> as GrapqhQL API Server. Nothing much I can say</p>
 <p>For accessing my server, I use <a href="https://tailscale.com">tailscale</a>. Tailscale builds on top of WireGuard by adding automatic mesh configuration, single sign-on (SSO), NAT traversal, TCP transport, and centralized Access Control Lists (ACLs). The best of it? It free up to Up to 100 devices!</p>
 <p>After connect to tailscale, then ssh to the internal ip
-<img loading="lazy" src="images/tailscale-node.png" alt="tailscale"  />
-</p>
+<img alt="tailscale" loading="lazy" src="/posts/website-in-pi/images/tailscale-node.png"></p>
 <h2 id="database">Database<a hidden class="anchor" aria-hidden="true" href="#database">#</a></h2>
 <p>Postgres. For now it just single node 😎, obviously SPOF (single point of failure) is here 😢</p>
 <p>In the future will build my own cluster DB using <a href="https://github.com/zalando/patroni">patroni</a> hosted obviously in raspy/orange pi.</p>
@@ -333,7 +336,6 @@ www1.tanggalnya.com.    678     IN      A       104.21.52.196
 <nav class="paginav">
   <a class="prev" href="http://localhost:1313/posts/tuning-up-postgresql/">
     <span class="title">« Prev</span>
-    <br>
     <span>Tuning Up Postgresql</span>
   </a>
 </nav>
@@ -417,7 +419,7 @@ www1.tanggalnya.com.    678     IN      A       104.21.52.196
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">I Dewa Putu Ardi Nusawan</a></span> · 
+        <span>&copy; 2026 <a href="http://localhost:1313/">I Dewa Putu Ardi Nusawan</a></span> · 
 
     <span>
         Powered by
@@ -425,16 +427,23 @@ www1.tanggalnya.com.    678     IN      A       104.21.52.196
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -461,25 +470,25 @@ www1.tanggalnya.com.    678     IN      A       104.21.52.196
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

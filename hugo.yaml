@@ -113,6 +113,7 @@ params:
       
       - ♥️ Travel, gym
       
+  social: {}
   socialIcons:
     - name: github
       title: Github
@@ -141,6 +142,7 @@ params:
 
   assets:
     disableHLJS: true
+    disableFingerprinting: true
   #     favicon: "<link / abs url>"
   #     favicon16x16: "<link / abs url>"
   #     favicon32x32: "<link / abs url>"
@@ -160,9 +162,6 @@ params:
   #     threshold: 0.4
   #     minMatchCharLength: 0
   #     keys: ["title", "permalink", "summary", "content"]
-
-  assets:
-    disableFingerprinting: true
 
 markup:
   goldmark:
@@ -197,5 +196,5 @@ markup:
 services:
   instagram:
     disableInlineCSS: true
-  twitter:
+  x:
     disableInlineCSS: true

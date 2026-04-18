@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" dir="auto">
+<html lang="id" dir="auto" data-theme="auto">
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,37 +40,48 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+            .toc {
+                background: var(--entry);
             }
         }
 
     </style>
 </noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
 <link rel="stylesheet" type="text/css" href="http://localhost:1313//css/asciinema-player.css" />
 
-<meta property="og:title" content="Git-fu" />
-<meta property="og:description" content="Belajar git untuk mempermudah hidupmu" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/id/posts/git-fu/" />
-<meta property="og:image" content="http://localhost:1313/id/posts/git-fu/https:/media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https:/dev-to-uploads.s3.amazonaws.com/i/nsbbm80zgqqypxyqtx1d.png" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-05-26T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-05-26T00:00:00+00:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="http://localhost:1313/id/posts/git-fu/https:/media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https:/dev-to-uploads.s3.amazonaws.com/i/nsbbm80zgqqypxyqtx1d.png" />
-<meta name="twitter:title" content="Git-fu"/>
-<meta name="twitter:description" content="Belajar git untuk mempermudah hidupmu"/>
+<meta property="og:url" content="http://localhost:1313/id/posts/git-fu/">
+  <meta property="og:site_name" content="I Dewa Putu Ardi Nusawan">
+  <meta property="og:title" content="Git-fu">
+  <meta property="og:description" content="Belajar git untuk mempermudah hidupmu">
+  <meta property="og:locale" content="id">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-05-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-05-26T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/id/posts/git-fu/https:/media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https:/dev-to-uploads.s3.amazonaws.com/i/nsbbm80zgqqypxyqtx1d.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/id/posts/git-fu/https:/media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https:/dev-to-uploads.s3.amazonaws.com/i/nsbbm80zgqqypxyqtx1d.png">
+  <meta name="twitter:title" content="Git-fu">
+  <meta name="twitter:description" content="Belajar git untuk mempermudah hidupmu">
 
 
 <script type="application/ld+json">
@@ -127,31 +138,19 @@
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
         <div class="logo">
             <a href="http://localhost:1313/id/" accesskey="h" title="I Dewa Putu Ardi Nusawan (Alt + H)">I Dewa Putu Ardi Nusawan</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -164,16 +163,16 @@
                         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
-                </button>
-                <ul class="lang-switch"><li>|</li>
-                    <li>
-                        <a href="http://localhost:1313/" title="English"
-                            aria-label="English">English</a>
-                    </li>
-                </ul>
+                </button><span>|</span>
+                    <ul class="lang-menu">
+                        <li>
+                            <a href="http://localhost:1313/" title="English"
+                                aria-label="English">English</a>
+                        </li>
+                    </ul>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="http://localhost:1313/id/archives" title="Arsip">
                     <span>Arsip</span>
@@ -196,91 +195,98 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/id/">Beranda</a>&nbsp;»&nbsp;<a href="http://localhost:1313/id/posts/">Posts</a></div>
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    <a href='http://localhost:1313/id/'>Beranda</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="http://localhost:1313/id/posts/">Posts</a></nav>
     <h1 class="post-title entry-hint-parent">
       Git-fu
     </h1>
     <div class="post-description">
       Belajar git untuk mempermudah hidupmu
     </div>
-    <div class="post-meta"><span title='2024-05-26 00:00:00 +0000 UTC'>Mei 26, 2024</span>&nbsp;·&nbsp;5 menit&nbsp;·&nbsp;I Dewa Putu Ardi Nusawan&nbsp;|&nbsp;<a href="https://github.com/ardinusawan/ardinusawan.github.io/tree/main/content/posts/git-fu/index.id.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2024-05-26 00:00:00 +0000 UTC'>26 Mei 2024</span>&nbsp;·&nbsp;<span>5 menit</span>&nbsp;·&nbsp;<span>I Dewa Putu Ardi Nusawan</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ardinusawan/ardinusawan.github.io/tree/main/content/posts/git-fu/index.id.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
 
 </div>
   </header> 
-<figure class="entry-cover"><img loading="eager" src="https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fi%2Fnsbbm80zgqqypxyqtx1d.png" alt="Git">
-        <p>Git</p>
-</figure><div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Daftar isi</span>
-        </summary>
+<figure class="entry-cover">
+        <img loading="eager" src="https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fi%2Fnsbbm80zgqqypxyqtx1d.png" alt="Git">
+        <figcaption>Git</figcaption>
+</figure><details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Daftar isi</span>
+    </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#permasalahan" aria-label="Permasalahan">Permasalahan</a><ul>
-                        
-                <li>
-                    <a href="#mengulang-kembali-apapun-yang-sudah-dilakukan" aria-label="Mengulang kembali apapun yang sudah dilakukan">Mengulang kembali apapun yang sudah dilakukan</a><ul>
-                        
-                <li>
-                    <a href="#git-reset---hard-head1" aria-label="git reset --hard HEAD@{1}">git reset --hard HEAD@{1}</a></li>
-                <li>
-                    <a href="#git-reset-head1" aria-label="git reset HEAD@{1}">git reset HEAD@{1}</a></li>
-                <li>
-                    <a href="#kesimpulan" aria-label="Kesimpulan">Kesimpulan</a></li></ul>
-                </li>
-                <li>
-                    <a href="#memperbaiki-commit-terakhir" aria-label="Memperbaiki commit terakhir">Memperbaiki commit terakhir</a></li>
-                <li>
-                    <a href="#memperbaiki-pesan-commit-terakhir" aria-label="Memperbaiki pesan commit terakhir">Memperbaiki pesan commit terakhir</a></li>
-                <li>
-                    <a href="#tanpa-sengaja-membuat-commit-di-branch-master-harusnya-di-branch-baru" aria-label="Tanpa sengaja membuat commit di branch master, harusnya di branch baru">Tanpa sengaja membuat commit di branch master, harusnya di branch baru</a><ul>
-                        
-                <li>
-                    <a href="#git-reset-head---hard" aria-label="git reset HEAD~ &ndash;hard">git reset HEAD~ &ndash;hard</a></li>
-                <li>
-                    <a href="#git-rebase--i-headn" aria-label="git rebase -i HEAD~n">git rebase -i HEAD~n</a></li>
-                <li>
-                    <a href="#git-cherry-pick-commit-hash" aria-label="git cherry-pick commit-hash">git cherry-pick commit-hash</a></li>
-                <li>
-                    <a href="#catatan" aria-label="Catatan">Catatan</a></li></ul>
-                </li>
-                <li>
-                    <a href="#membatalkan-commit-yang-lampau" aria-label="Membatalkan commit yang lampau">Membatalkan commit yang lampau</a></li>
-                <li>
-                    <a href="#menyimpan-state" aria-label="Menyimpan state">Menyimpan state</a></li>
-                <li>
-                    <a href="#mengembalikan-keadaan-file-pada-keadaan-sebelumnya" aria-label="Mengembalikan keadaan file pada keadaan sebelumnya">Mengembalikan keadaan file pada keadaan sebelumnya</a></li>
-                <li>
-                    <a href="#push-paksa-force-push" aria-label="Push Paksa (Force Push)">Push Paksa (Force Push)</a><ul>
-                        
-                <li>
-                    <a href="#mengapa-force-push-berbahaya" aria-label="Mengapa Force Push Berbahaya?">Mengapa Force Push Berbahaya?</a></li>
-                <li>
-                    <a href="#--force" aria-label="--force">--force</a></li>
-                <li>
-                    <a href="#--force-with-lease" aria-label="--force-with-lease">--force-with-lease</a><ul>
-                        
-                <li>
-                    <a href="#keuntungan-menggunakan---force-with-lease" aria-label="Keuntungan Menggunakan --force-with-lease">Keuntungan Menggunakan --force-with-lease</a></li>
-                <li>
-                    <a href="#contoh-penggunaan---force-with-lease" aria-label="Contoh Penggunaan --force-with-lease">Contoh Penggunaan --force-with-lease</a></li></ul>
-                </li>
-                <li>
-                    <a href="#kesimpulan-1" aria-label="Kesimpulan">Kesimpulan</a></li></ul>
-                </li></ul>
-                </li>
-                <li>
-                    <a href="#sumber-referensi" aria-label="Sumber Referensi">Sumber Referensi</a></li>
-                <li>
-                    <a href="#peralatan" aria-label="Peralatan">Peralatan</a>
-                </li>
-            </ul>
-        </div>
-    </details>
-</div>
+    <div class="inner"><ul>
+            <li>
+                <a href="#permasalahan" aria-label="Permasalahan">Permasalahan</a><ul>
+                    
+            <li>
+                <a href="#mengulang-kembali-apapun-yang-sudah-dilakukan" aria-label="Mengulang kembali apapun yang sudah dilakukan">Mengulang kembali apapun yang sudah dilakukan</a><ul>
+                    
+            <li>
+                <a href="#git-reset---hard-head1" aria-label="git reset --hard HEAD@{1}">git reset --hard HEAD@{1}</a></li>
+            <li>
+                <a href="#git-reset-head1" aria-label="git reset HEAD@{1}">git reset HEAD@{1}</a></li>
+            <li>
+                <a href="#kesimpulan" aria-label="Kesimpulan">Kesimpulan</a></li></ul>
+            </li>
+            <li>
+                <a href="#memperbaiki-commit-terakhir" aria-label="Memperbaiki commit terakhir">Memperbaiki commit terakhir</a></li>
+            <li>
+                <a href="#memperbaiki-pesan-commit-terakhir" aria-label="Memperbaiki pesan commit terakhir">Memperbaiki pesan commit terakhir</a></li>
+            <li>
+                <a href="#tanpa-sengaja-membuat-commit-di-branch-master-harusnya-di-branch-baru" aria-label="Tanpa sengaja membuat commit di branch master, harusnya di branch baru">Tanpa sengaja membuat commit di branch master, harusnya di branch baru</a><ul>
+                    
+            <li>
+                <a href="#git-reset-head-hard" aria-label="git reset HEAD~ &ndash;hard">git reset HEAD~ &ndash;hard</a></li>
+            <li>
+                <a href="#git-rebase--i-headn" aria-label="git rebase -i HEAD~n">git rebase -i HEAD~n</a></li>
+            <li>
+                <a href="#git-cherry-pick-commit-hash" aria-label="git cherry-pick commit-hash">git cherry-pick commit-hash</a></li>
+            <li>
+                <a href="#catatan" aria-label="Catatan">Catatan</a></li></ul>
+            </li>
+            <li>
+                <a href="#membatalkan-commit-yang-lampau" aria-label="Membatalkan commit yang lampau">Membatalkan commit yang lampau</a></li>
+            <li>
+                <a href="#menyimpan-state" aria-label="Menyimpan state">Menyimpan state</a></li>
+            <li>
+                <a href="#mengembalikan-keadaan-file-pada-keadaan-sebelumnya" aria-label="Mengembalikan keadaan file pada keadaan sebelumnya">Mengembalikan keadaan file pada keadaan sebelumnya</a></li>
+            <li>
+                <a href="#push-paksa-force-push" aria-label="Push Paksa (Force Push)">Push Paksa (Force Push)</a><ul>
+                    
+            <li>
+                <a href="#mengapa-force-push-berbahaya" aria-label="Mengapa Force Push Berbahaya?">Mengapa Force Push Berbahaya?</a></li>
+            <li>
+                <a href="#--force" aria-label="--force">--force</a></li>
+            <li>
+                <a href="#--force-with-lease" aria-label="--force-with-lease">--force-with-lease</a><ul>
+                    
+            <li>
+                <a href="#keuntungan-menggunakan---force-with-lease" aria-label="Keuntungan Menggunakan --force-with-lease">Keuntungan Menggunakan --force-with-lease</a></li>
+            <li>
+                <a href="#contoh-penggunaan---force-with-lease" aria-label="Contoh Penggunaan --force-with-lease">Contoh Penggunaan --force-with-lease</a></li></ul>
+            </li>
+            <li>
+                <a href="#kesimpulan-1" aria-label="Kesimpulan">Kesimpulan</a></li></ul>
+            </li></ul>
+            </li>
+            <li>
+                <a href="#sumber-referensi" aria-label="Sumber Referensi">Sumber Referensi</a></li>
+            <li>
+                <a href="#peralatan" aria-label="Peralatan">Peralatan</a>
+            </li>
+        </ul>
+    </div>
+</details>
 
-  <div class="post-content"><h1 id="permasalahan">Permasalahan<a hidden class="anchor" aria-hidden="true" href="#permasalahan">#</a></h1>
+  <div class="post-content md-content"><h1 id="permasalahan">Permasalahan<a hidden class="anchor" aria-hidden="true" href="#permasalahan">#</a></h1>
 <h2 id="mengulang-kembali-apapun-yang-sudah-dilakukan">Mengulang kembali apapun yang sudah dilakukan<a hidden class="anchor" aria-hidden="true" href="#mengulang-kembali-apapun-yang-sudah-dilakukan">#</a></h2>
 <p>Bayangkan kamu telah melakukan beberapa commit, tetapi kemudian kamu melakukan <code>git reset --hard HEAD~2</code> dan kehilangan dua commit terakhir. Kamu dapat memulihkannya dengan cara berikut:</p>
 <div id='git-fu/reflog'></div>
@@ -391,7 +397,7 @@ git commit --amend --no-edit
 <h2 id="tanpa-sengaja-membuat-commit-di-branch-master-harusnya-di-branch-baru">Tanpa sengaja membuat commit di branch master, harusnya di branch baru<a hidden class="anchor" aria-hidden="true" href="#tanpa-sengaja-membuat-commit-di-branch-master-harusnya-di-branch-baru">#</a></h2>
 <p>Pernah ga sih lupa checkout ke branch tetapi langsung ngoding di branch master(atau branch lainnya)? 🤣</p>
 <p>Tenang, caranya gampang banget.</p>
-<h3 id="git-reset-head---hard">git reset HEAD~ &ndash;hard<a hidden class="anchor" aria-hidden="true" href="#git-reset-head---hard">#</a></h3>
+<h3 id="git-reset-head-hard">git reset HEAD~ &ndash;hard<a hidden class="anchor" aria-hidden="true" href="#git-reset-head-hard">#</a></h3>
 <ol>
 <li>Pada branch master, buat dulu branch baru
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git branch nama-branch-baru
@@ -636,7 +642,6 @@ git commit --amend --no-edit
 <nav class="paginav">
   <a class="next" href="http://localhost:1313/id/posts/git-details/">
     <span class="title">Selanjutnya »</span>
-    <br>
     <span>Git-details</span>
   </a>
 </nav>
@@ -720,7 +725,7 @@ git commit --amend --no-edit
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/id/">I Dewa Putu Ardi Nusawan</a></span> · 
+        <span>&copy; 2026 <a href="http://localhost:1313/id/">I Dewa Putu Ardi Nusawan</a></span> · 
 
     <span>
         Powered by
@@ -728,16 +733,23 @@ git commit --amend --no-edit
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -764,25 +776,25 @@ git commit --amend --no-edit
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })
