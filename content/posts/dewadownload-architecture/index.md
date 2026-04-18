@@ -5,9 +5,9 @@ date: 2026-04-19
 description: "From git push to global CDN: Deploying a multi-node video downloader with 3 subdomains, Cloudflare tunnels, and zero cloud bills"
 tags: ["deployment", "cloudflare", "docker", "git", "architecture", "video-downloader"]
 thumbnail:
-  image: "images/architecture-overview.png"
+  image: "images/architecture.png"
   cover:
-    image: "images/architecture-overview.png"
+    image: "images/architecture.png"
     alt: "DewaDownload Architecture"
     caption: "Multi-node architecture with Cloudflare tunnels"
     relative: true
@@ -60,7 +60,7 @@ User → Cloudflare CDN → Cloudflare Tunnel → Nginx → Fastify Backend → 
 - Resources: 2 CPU cores, 2GB RAM
 - Tunnel ID: `95ae5e2d-f439-4e5f-8c59-b2c9c37ab932`
 
-![Architecture Overview](images/architecture-overview.png)
+![Architecture Overview](images/architecture.png)
 
 ## How Deployment Works: Git Push Magic
 
@@ -182,7 +182,7 @@ await redis.setex(`info:${videoId}`, 86400, JSON.stringify(metadata));
 3. **Health Checks**: Automatic recovery
 4. **8192 Concurrent Connections**: 8x increase
 
-![Performance Comparison](images/performance-chart.png)
+![Performance Comparison](images/performance.png)
 
 ## The Git Workflow
 
