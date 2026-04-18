@@ -106,12 +106,23 @@ params:
       - 📍 Bali
 
       - 💼 Software Engineer at [Bytedance](https://bytedance.com/) | Logistics for TikTok Shop
-      
+
       - ✍🏼 Writing code as daily basis
-      
+
       - 🎓 ITS Surabaya 2017
-      
+
       - ♥️ Travel, gym
+
+      <details>
+      <summary>🌐 Portfolio & Projects</summary>
+      <ul>
+      <li><a href="https://atcsindonesia.com" target="_blank">atcsindonesia.com</a></li>
+      <li><a href="https://dewadownload.com" target="_blank">dewadownload.com</a></li>
+      <li><a href="https://dewaloker.id" target="_blank">dewaloker.id</a></li>
+      <li><a href="https://tanggalnya.com" target="_blank">tanggalnya.com</a></li>
+      <li><a href="https://pi.ardinusawan.xyz" target="_blank">pi.ardinusawan.xyz</a> (self-hosted infra)</li>
+      </ul>
+      </details>
       
   social: {}
   socialIcons:
