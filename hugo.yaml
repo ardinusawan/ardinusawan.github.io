@@ -2,7 +2,8 @@ baseURL: https://ardinusawan.xyz/
 languageCode: en-id
 title: I Dewa Putu Ardi Nusawan
 theme: ["PaperMod"]
-paginate: 5
+pagination:
+  pagerSize: 5
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
