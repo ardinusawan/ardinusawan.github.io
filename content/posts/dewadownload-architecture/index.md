@@ -1,7 +1,7 @@
 ---
 author: ["I Dewa Putu Ardi Nusawan"]
 title: "Zero-Cloud, Zero-Cost: How I Built a 3-Node Video Downloader Empire"
-date: 2026-04-19
+date: 2024-04-19
 description: "From git push to global CDN: Deploying a multi-node video downloader with 3 subdomains, Cloudflare tunnels, and zero cloud bills"
 tags: ["deployment", "cloudflare", "docker", "git", "architecture", "video-downloader"]
 thumbnail:
