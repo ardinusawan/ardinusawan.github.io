@@ -1,7 +1,7 @@
 ---
 author: ["I Dewa Putu Ardi Nusawan"]
 title: "Zero-Cloud, Zero-Cost: How I Built a 3-Node Video Downloader Empire"
-date: 2024-04-19
+date: 2026-04-19
 description: "From git push to global CDN: Deploying a multi-node video downloader with 3 subdomains, Cloudflare tunnels, and zero cloud bills"
 tags: ["deployment", "cloudflare", "docker", "git", "architecture", "video-downloader"]
 thumbnail:
@@ -325,8 +325,10 @@ The key lessons:
 
 Want to see the code? Check out the [GitHub repository](https://github.com/ardinusawan/download-youtube-video).
 
+Try it out at [dewadownload.com](https://dewadownload.com)!
+
 Have questions? Hit me up at ardi.nusawan13[at]gmail.com!
 
 ---
 
-**Made with ❤️ and zero cloud bills by [Ardin S](https://github.com/ardinusawan)**
+**Made with ❤️ and zero cloud bills by [Ardi Nusawan](https://github.com/ardinusawan)**
